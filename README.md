@@ -2,11 +2,17 @@
 
 [日本語版はこちら](README.ja.md)
 
-When you feed Paradox game scripts directly to an LLM, your token budget quickly becomes exhausted.
+Fast, token-efficient Paradox script exploration for AI assistants
 
-This MCP extracts only symbols (like event IDs) from Paradox scripts, or loads only the block indicated by a symbol.
+## What is this?
 
-It can be used from MCP-compatible clients like Claude!
+Paradox game scripts are written in plain text, which means you can have coding bots like Claude Code read and explore them to automatically investigate things like event trigger conditions.
+
+However, game script files tend to be quite large, so feeding them directly to a coding bot will quickly exhaust your context. (And as in many Paradox games, resource depletion means death.)
+
+This MCP allows you to extract only symbols (like event IDs) from Paradox scripts, or load only the block indicated by a specific symbol.
+
+It can be used from MCP-compatible clients such as Claude, Claude Code, gemini-cli (untested), and others.
 
 ## Example: Investigating an Achievement
 
