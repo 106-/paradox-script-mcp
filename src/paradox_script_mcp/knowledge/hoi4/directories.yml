@@ -1,0 +1,57 @@
+# HOI4 Directory Knowledge
+# Defines purposes of each directory
+
+directories:
+  common/achievements.txt:
+    description: Achievements
+
+  common/national_focus:
+    description: National focus trees
+
+  common/decisions:
+    description: Decisions
+
+  common/ideas:
+    description: National spirits, ministers, companies
+
+  common/characters:
+    description: Characters (generals, admirals, ministers)
+
+  common/technologies:
+    description: Technologies
+
+  common/units:
+    description: Unit definitions
+
+  common/country_tags:
+    description: Country tag definitions
+
+  events:
+    description: Events
+
+  history/countries:
+    description: Country initial setup
+
+  history/states:
+    description: State definitions
+
+  history/units:
+    description: Initial unit deployment
+
+  common/scripted_effects:
+    description: Scripted effects (reusable effect blocks)
+
+  common/scripted_triggers:
+    description: Scripted triggers (reusable conditions)
+
+  common/on_actions:
+    description: On-actions (event hooks)
+
+  localisation:
+    description: Localisation (text translations)
+
+  interface:
+    description: UI interface definitions
+
+  gfx:
+    description: Graphics definitions
