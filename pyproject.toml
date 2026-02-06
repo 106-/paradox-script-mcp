@@ -20,7 +20,7 @@ build-backend = "hatchling.build"
 packages = ["src/paradox_script_mcp"]
 
 [tool.uv.sources]
-paradox-script-parser = { git = "https://github.com/106-/paradox-script-parser" }
+paradox-script-parser = { git = "https://github.com/106-/paradox-script-parser", rev = "0bcba816ac64f00dbf6740fbe2099f1050dfbd7c" }
 
 [dependency-groups]
 dev = [

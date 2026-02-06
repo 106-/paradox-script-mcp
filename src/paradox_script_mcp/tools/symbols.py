@@ -33,27 +33,39 @@ def list_symbols_tool(ctx: GameContext, file_path: str) -> str:
     if not isinstance(raw_data, dict):
         return f"Error: Expected dict, got {type(raw_data).__name__}"
 
-    lines = _format_generic(raw_data)
+    lines = _format_generic(data, raw_data)
 
     return "\n".join(lines) if lines else f"No symbols found in {file_path}"
 
 
-def _format_generic(data: dict) -> list[str]:
-    """Format data without known structure"""
+def _format_generic(data, raw_data: dict) -> list[str]:
+    """Format data without known structure
+
+    Args:
+        data: Original ScriptData/ScriptNode with span info
+        raw_data: The underlying dict (_data)
+    """
     lines = []
-    for key, value in data.items():
+    for key, value in raw_data.items():
         value_data = value._data if hasattr(value, "_data") else value
+
+        # Get line info
+        span = value.span if hasattr(value, "span") else None
+        line_info = f"L{span[0]}-L{span[2]}" if span else ""
 
         if isinstance(value_data, dict):
             # Show block with id if present
             item_id = value_data.get("id", "")
             if item_id:
-                lines.append(f"block: {key} (id={item_id})")
+                lines.append(f"block: {key} ({line_info}, id={item_id})" if line_info else f"block: {key} (id={item_id})")
             else:
-                lines.append(f"block: {key}")
+                lines.append(f"block: {key} ({line_info})" if line_info else f"block: {key}")
         elif isinstance(value_data, list):
-            lines.append(f"list: {key} ({len(value_data)} items)")
+            lines.append(f"list: {key} ({len(value_data)} items, {line_info})" if line_info else f"list: {key} ({len(value_data)} items)")
         else:
-            lines.append(f"value: {key} = {value_data}")
+            # For primitive values, use key_span for single line
+            key_pos = data.key_span(key) if hasattr(data, "key_span") else None
+            val_line = f"L{key_pos[0]}" if key_pos else ""
+            lines.append(f"value: {key} = {value_data} ({val_line})" if val_line else f"value: {key} = {value_data}")
 
     return lines
