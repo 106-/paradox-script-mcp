@@ -2,6 +2,7 @@
 Structure inspection tool
 """
 
+import re
 from typing import Any
 
 from paradox_script.parser import parse_save_file
@@ -59,7 +60,7 @@ def get_structure_tool(
         if block is None:
             return f"Key path not found: {symbol}.{key_path}"
         display_name = f"{symbol}.{key_path}"
-        depth = key_path.count(".") + 1
+        depth = key_path.count(".") + 1 + len(re.findall(r'\[\d+\]', key_path))
 
     # If depth >= threshold, expand fully
     expand_full = depth >= EXPAND_DEPTH_THRESHOLD
@@ -166,6 +167,10 @@ def _navigate_key_path(block: Any, key_path: str) -> Any | None:
     """
     Navigate to a nested block using dot-separated key path.
 
+    Supports list index access:
+    - "option[0]" → key "option", then index 0
+    - "option.0" → key "option", then segment "0" as index
+
     Args:
         block: The starting block
         key_path: Dot-separated path (e.g., "completion_reward.hidden_effect")
@@ -175,17 +180,40 @@ def _navigate_key_path(block: Any, key_path: str) -> Any | None:
     """
     current = block
     for key in key_path.split("."):
-        # Unwrap ScriptNode if needed
         if hasattr(current, "_data"):
             current = current._data
+
+        # List index access (e.g., "0", "1")
+        if isinstance(current, list):
+            try:
+                idx = int(key)
+                if 0 <= idx < len(current):
+                    current = current[idx]
+                    continue
+                else:
+                    return None
+            except ValueError:
+                return None
 
         if not isinstance(current, dict):
             return None
 
-        if key not in current:
-            return None
-
-        current = current[key]
+        # key[N] format (e.g., "option[0]")
+        m = re.match(r'^(.+)\[(\d+)\]$', key)
+        if m:
+            dict_key, idx = m.group(1), int(m.group(2))
+            if dict_key not in current:
+                return None
+            value = current[dict_key]
+            if hasattr(value, "_data"):
+                value = value._data
+            if not isinstance(value, list) or idx >= len(value):
+                return None
+            current = value[idx]
+        else:
+            if key not in current:
+                return None
+            current = current[key]
 
     return current
 
@@ -205,7 +233,16 @@ def _format_structure(symbol: str, block: Any, expand_full: bool = False) -> str
     if isinstance(block_data, list):
         if expand_full:
             return f"{symbol}:\n{_expand_value(block_data, indent=2)}"
-        return f"{symbol}: [list] ({len(block_data)} items)"
+        lines_list = [f"{symbol}: [list] ({len(block_data)} items)"]
+        for i, item in enumerate(block_data):
+            item_data = item._data if hasattr(item, "_data") else item
+            if isinstance(item_data, dict):
+                label = item_data.get("name", "") or item_data.get("id", "")
+                if label:
+                    lines_list.append(f"  [{i}]: {label}")
+                else:
+                    lines_list.append(f"  [{i}]")
+        return "\n".join(lines_list)
 
     if not isinstance(block_data, dict):
         return f"{symbol}: {block_data}"
@@ -250,7 +287,16 @@ def _format_key_value(key: str, value: Any, expand_full: bool = False) -> str:
         else:
             if expand_full:
                 return f"{key}:\n{_expand_value(value, indent=4)}"
-            return f"{key}: [block list] ({len(value)} items)"
+            lines_list = [f"{key}: [block list] ({len(value)} items)"]
+            for i, item in enumerate(value):
+                item_data = item._data if hasattr(item, "_data") else item
+                if isinstance(item_data, dict):
+                    label = item_data.get("name", "") or item_data.get("id", "")
+                    if label:
+                        lines_list.append(f"    [{i}]: {label}")
+                    else:
+                        lines_list.append(f"    [{i}]")
+            return "\n".join(lines_list)
 
     elif isinstance(value, bool):
         return f"{key}: {'yes' if value else 'no'}"
