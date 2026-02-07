@@ -62,6 +62,12 @@ def _format_generic(data, raw_data: dict) -> list[str]:
                 lines.append(f"block: {key} ({line_info})" if line_info else f"block: {key}")
         elif isinstance(value_data, list):
             lines.append(f"list: {key} ({len(value_data)} items, {line_info})" if line_info else f"list: {key} ({len(value_data)} items)")
+            for item in value_data:
+                item_data = item._data if hasattr(item, "_data") else item
+                if isinstance(item_data, dict):
+                    item_id = item_data.get("id", "")
+                    if item_id:
+                        lines.append(f"  - {item_id}")
         else:
             # For primitive values, use key_span for single line
             key_pos = data.key_span(key) if hasattr(data, "key_span") else None
