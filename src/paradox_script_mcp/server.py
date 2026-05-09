@@ -8,8 +8,9 @@ Provides tools for efficient discovery of HOI4 game scripts.
 from mcp.server.fastmcp import FastMCP
 
 from paradox_script_mcp.core.game import GameContext
-from paradox_script_mcp.tools.explore import list_directories_tool
-from paradox_script_mcp.tools.symbols import list_symbols_tool
+from paradox_script_mcp.tools.explore import list_directories_tool, list_files_tool
+from paradox_script_mcp.tools.search import search_references_tool
+from paradox_script_mcp.tools.symbols import find_symbol_at_line_tool, list_symbols_tool
 from paradox_script_mcp.tools.structure import get_structure_tool
 
 # Global game context instance
@@ -42,6 +43,24 @@ def init_game(game_directory: str) -> str:
 
 
 @mcp.tool()
+def list_files(directory: str) -> str:
+    """
+    List script files (.txt) in a directory.
+
+    Use this to find file names before calling list_symbols or get_structure.
+    Combine with list_directories to navigate the game's script structure.
+
+    Args:
+        directory: Relative path to the directory
+                  (e.g., "common/national_focus", "events")
+
+    Returns:
+        List of .txt file names in the directory.
+    """
+    return list_files_tool(_ctx, directory)
+
+
+@mcp.tool()
 def list_directories() -> str:
     """
     List all known script directories and their purposes.
@@ -53,6 +72,26 @@ def list_directories() -> str:
         List of directories with their purposes in Japanese.
     """
     return list_directories_tool()
+
+
+@mcp.tool()
+def find_symbol_at_line(file_path: str, line: int) -> str:
+    """
+    Find which symbol contains the given line number.
+
+    Use this after search_references returns a file and line number,
+    to identify which symbol (event, focus, achievement, etc.) owns that line.
+    Returns the symbol name and its line range so you can call get_structure next.
+
+    Args:
+        file_path: Relative path to the file
+                  (e.g., "events/MUN_Czechoslovakia.txt")
+        line: Line number to look up (1-based)
+
+    Returns:
+        Symbol name, container type, line range, and a ready-to-use get_structure call.
+    """
+    return find_symbol_at_line_tool(_ctx, file_path, line)
 
 
 @mcp.tool()
@@ -71,6 +110,30 @@ def list_symbols(file_path: str) -> str:
         Compact list of symbols with their types and key attributes.
     """
     return list_symbols_tool(_ctx, file_path)
+
+
+@mcp.tool()
+def search_references(
+    query: str,
+    glob_pattern: str = "**/*.txt",
+    include_lines: bool = False,
+) -> str:
+    """
+    Search for a string across all game script files.
+
+    Use this to find which files reference a flag, event ID, or any other string.
+    By default returns only file paths (token-efficient).
+    Set include_lines=True to also return matching line numbers and content.
+
+    Args:
+        query: String to search for (literal match)
+        glob_pattern: Glob pattern relative to game directory (default: **/*.txt)
+        include_lines: If True, include matching line numbers and content
+
+    Returns:
+        List of files (and optionally lines) containing the query.
+    """
+    return search_references_tool(_ctx, query, glob_pattern, include_lines)
 
 
 @mcp.tool()
