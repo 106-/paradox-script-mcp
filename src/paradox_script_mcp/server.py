@@ -11,7 +11,7 @@ from paradox_script_mcp.core.game import GameContext
 from paradox_script_mcp.tools.explore import list_directories_tool, list_files_tool
 from paradox_script_mcp.tools.search import search_references_tool
 from paradox_script_mcp.tools.symbols import find_symbol_at_line_tool, list_symbols_tool
-from paradox_script_mcp.tools.structure import get_structure_tool
+from paradox_script_mcp.tools.structure import get_structure_by_id_tool, get_structure_tool
 
 # Global game context instance
 _ctx = GameContext()
@@ -161,6 +161,35 @@ def get_structure(file_path: str, symbol: str, key_path: str | None = None) -> s
         At depth >= 2 (via key_path), blocks are fully expanded.
     """
     return get_structure_tool(_ctx, file_path, symbol, key_path)
+
+
+@mcp.tool()
+def get_structure_by_id(
+    symbol: str,
+    glob_pattern: str = "**/*.txt",
+    key_path: str | None = None,
+) -> str:
+    """
+    Get the structure of a symbol by its ID, without specifying a file path.
+
+    Use this when you find a reference like `country_event = { id = shroud.4135 }`
+    and want to inspect the definition directly — combines text search and parsing
+    in one step.
+
+    Args:
+        symbol: Symbol ID to find (e.g., "shroud.4135", "end_of_the_cycle")
+        glob_pattern: Glob pattern relative to game directory (default: **/*.txt)
+                     Use narrower patterns like "events/**/*.txt" for speed.
+        key_path: Optional dot-separated path to navigate into nested blocks
+                 (e.g., "completion_reward", "completion_reward.hidden_effect")
+                 Paths with 2+ segments trigger full content expansion instead
+                 of "[block]" placeholders.
+
+    Returns:
+        Compact structure showing keys and value types.
+        Includes the source file path where the symbol was found.
+    """
+    return get_structure_by_id_tool(_ctx, symbol, glob_pattern, key_path)
 
 
 # ASGI app for uvicorn (hot reload support)

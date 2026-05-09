@@ -1,0 +1,465 @@
+# stellaris Directory Knowledge
+# Auto-generated — review and correct descriptions as needed.
+
+directories:
+  common/agreement_presets:
+    description: Preset term configurations for subject and federation agreements
+
+  common/agreement_resources:
+    description: Resource cost definitions for subject agreement economic categories
+
+  common/agreement_term_values:
+    description: Value options for negotiable terms within subject agreements
+
+  common/agreement_terms:
+    description: Negotiable term type definitions available in subject and federation agreements
+
+  common/ai_budget:
+    description: AI resource expenditure weights and priority rules for economic categories
+
+  common/ambient_objects:
+    description: Selectable ambient space objects such as probes and debris with tooltip definitions
+
+  common/anomalies:
+    description: Anomaly category definitions and their exploration event triggers
+
+  common/archaeological_site_types:
+    description: Archaeological dig site definitions with stage counts and reward configurations
+
+  common/armies:
+    description: Ground army unit type definitions for planetary invasions and defense
+
+  common/artifact_actions:
+    description: Expendable actions that consume minor artifacts for empire effects
+
+  common/ascension_perks:
+    description: Late-game empire-wide ascension perk and ascension path definitions
+
+  common/asteroid_belts:
+    description: Asteroid belt mesh and visual configuration definitions
+
+  common/astral_actions:
+    description: Actions performed using astral threads in the Astral Planes DLC
+
+  common/astral_rifts:
+    description: Astral rift definitions and their associated event chain entry points
+
+  common/attitudes:
+    description: AI diplomatic attitude type definitions with behavior flags
+
+  common/bombardment_stances:
+    description: Orbital bombardment stance options and their conditions for fleets
+
+  common/buildings:
+    description: Planet building definitions including capital, industrial, and specialty structures
+
+  common/button_effects:
+    description: UI action button effect definitions for interactive objects and creatures
+
+  common/bypass:
+    description: Interstellar bypass type definitions such as gateways and wormholes
+
+  common/casus_belli:
+    description: Casus belli type definitions that justify war declarations
+
+  common/cloaking_strength_levels:
+    description: Cloaking strength tier definitions with speed penalty and detection modifiers
+
+  common/colony_automation:
+    description: Colony automation plan definitions for automated planet management
+
+  common/colony_automation_categories:
+    description: Category tag definitions for grouping colony automation plans
+
+  common/colony_automation_exceptions:
+    description: Emergency exception rules that override standard colony automation behavior
+
+  common/colony_types:
+    description: Colony designation types controlling zone priority and district weighting
+
+  common/colors:
+    description: Country and faction color palettes for random color assignment
+
+  common/component_sets:
+    description: Ship component set groupings for icon and UI display
+
+  common/component_slot_templates:
+    description: Ship component slot layout templates for weapon and utility hardpoints
+
+  common/component_tags:
+    description: Tag labels grouping ship components by type for modifier targeting
+
+  common/component_templates:
+    description: Ship weapon, utility, reactor, and special component definitions
+
+  common/council_agendas:
+    description: Galactic council agenda type definitions and their progression costs
+
+  common/country_container:
+    description: Named resource income container categories for topbar tooltip attribution
+
+  common/country_customization:
+    description: Per-empire customization rules for default building and structure selection
+
+  common/country_types:
+    description: Empire archetype definitions controlling gameplay systems and AI behavior flags
+
+  common/crisis_levels:
+    description: Menace crisis progression level definitions and their perk unlock requirements
+
+  common/crisis_objectives:
+    description: Crisis menace objective definitions and their menace reward values
+
+  common/crisis_paths:
+    description: Player-driven crisis escalation path structures and crisis currency definitions
+
+  common/decisions:
+    description: Planet and empire decision definitions with conditions and effects
+
+  common/defines:
+    description: Core numerical constants and simulation parameters for game tuning
+
+  common/deposit_categories:
+    description: Category groupings for classifying planetary resource deposits and blockers
+
+  common/deposits:
+    description: Planetary deposit definitions including resource yields and blocker properties
+
+  common/diplo_phrases:
+    description: Contextual diplomatic greeting and action phrase tables weighted by ethics
+
+  common/diplomacy_economy:
+    description: Resource upkeep for diplomacy objects not scripted in their own files
+
+  common/diplomatic_actions:
+    description: Diplomatic action type definitions with requirements and vote conditions
+
+  common/districts:
+    description: Planet district type definitions controlling zone generation and job slots
+
+  common/dynamic_text:
+    description: Tag-driven dynamic text generation rules for contextual localization strings
+
+  common/economic_categories:
+    description: Resource economic category definitions for AI budgeting and UI tooltip grouping
+
+  common/economic_plans:
+    description: AI economic plan templates controlling resource allocation strategies
+
+  common/edicts:
+    description: Empire edict, campaign, and ambition definitions with activation costs
+
+  common/espionage_assets:
+    description: Spy network asset definitions with passive and active modifier effects
+
+  common/espionage_operation_categories:
+    description: Category groupings for espionage operation types
+
+  common/espionage_operation_types:
+    description: Espionage operation definitions with stages, difficulty, and event hooks
+
+  common/ethic_categories:
+    description: Ethic axis category definitions for organizing the ethics system
+
+  common/ethics:
+    description: Empire and pop ethic definitions with associated modifiers and requirements
+
+  common/event_chains:
+    description: Multi-stage event chain definitions tracked in the situation log
+
+  common/fallen_empires:
+    description: Fallen and awakened empire configuration templates and initializer assignments
+
+  common/federation_law_categories:
+    description: Category groupings for federation governance law types
+
+  common/federation_laws:
+    description: Federation law definitions with modifiers and enactment conditions
+
+  common/federation_perks:
+    description: Federation experience perk definitions and their member bonus effects
+
+  common/federation_types:
+    description: Federation type definitions controlling available laws and cohesion behavior
+
+  common/first_contact:
+    description: First contact story set definitions for pre-FTL and alien encounter scenarios
+
+  common/galactic_community_actions:
+    description: Resource costs for galactic community administrative actions
+
+  common/galactic_focuses:
+    description: Galactic community focus definitions with fulfillment triggers and weights
+
+  common/game_concept_categories:
+    description: Databank category definitions for the in-game encyclopedia
+
+  common/game_concepts:
+    description: In-game encyclopedia concept entries with aliases and databank references
+
+  common/game_rules:
+    description: Scripted validation rules for diplomacy and gameplay action availability
+
+  common/gamesetup_settings:
+    description: UI settings definitions for the galaxy generation setup screen
+
+  common/global_ship_designs:
+    description: Pre-authored ship designs used for events and scripted galaxy setup
+
+  common/governments:
+    description: Government form definitions combining authority types and ethic requirements
+
+  common/graphical_culture:
+    description: Species graphical culture definitions linking species to ship and city visuals
+
+  common/greeting_overlay_sounds:
+    description: Scripted sound effect assignments for diplomatic greeting overlay conditions
+
+  common/inline_scripts:
+    description: Reusable named script blocks for inclusion across multiple script files
+
+  common/intel_categories:
+    description: Intelligence domain category definitions controlling what information is revealed
+
+  common/intel_levels:
+    description: Intelligence level tier definitions mapping intel ranges to visible data fields
+
+  common/job_tags:
+    description: Tag labels grouping pop jobs by output resource type
+
+  common/lawsuits:
+    description: Lawsuit type definitions for corporate governance mechanics
+
+  common/leader_classes:
+    description: Leader role class definitions with governing, army, and navy bonus rules
+
+  common/leader_tiers:
+    description: Leader tier level definitions for portrait styling and texture differentiation
+
+  common/map_modes:
+    description: Galaxy map mode definitions for strategic and diplomatic overlay views
+
+  common/megastructure_overclock_types:
+    description: Overclock modifier type definitions for the Galactic Crucible megastructure
+
+  common/megastructures:
+    description: Megastructure build stage definitions with resource costs and construction rules
+
+  common/menace_perks:
+    description: Crisis menace perk definitions unlocked through crisis level progression
+
+  common/message_types:
+    description: In-game notification message type definitions controlling display and sound
+
+  common/missions:
+    description: Player challenge mission definitions tied to specific event chains
+
+  common/mutations:
+    description: Space fauna mutation component definitions for the Biogenesis DLC
+
+  common/name_lists:
+    description: Species, ship, and fleet name list definitions for randomized naming
+
+  common/named_colors:
+    description: Named color constant definitions referenced by script and UI elements
+
+  common/notification_modifiers:
+    description: Notification modifier definitions displayed as entries in the government screen
+
+  common/observation_station_missions:
+    description: Pre-FTL observation station mission type definitions with country effects
+
+  common/on_actions:
+    description: Event hook tables mapping engine triggers to event and effect lists
+
+  common/opinion_modifiers:
+    description: Diplomatic opinion modifier definitions applied between empires
+
+  common/patrons:
+    description: Shroud patron definitions controlling Psionic covenant mechanics
+
+  common/personalities:
+    description: AI empire personality templates controlling behavioral flags and attitude weights
+
+  common/planet_classes:
+    description: Planet and star type definitions with visual settings and colonization rules
+
+  common/planet_modifiers:
+    description: Random and scripted planet modifier definitions applied to colonies
+
+  common/policies:
+    description: Empire policy option set definitions with effect modifiers and AI weights
+
+  common/pop_categories:
+    description: Pop social strata category definitions controlling job priority and automation
+
+  common/pop_faction_types:
+    description: Political faction type definitions with guiding ethics and election rules
+
+  common/pop_jobs:
+    description: Pop job definitions controlling production output and colony role assignments
+
+  common/precursor_civilizations:
+    description: Precursor civilization template definitions for archaeology and relics
+
+  common/prescripted_flags:
+    description: Default flag assignments mapping empire IDs to their flag designs
+
+  common/random_names:
+    description: Random name part lists for empire, federation, and pop faction generation
+
+  common/relics:
+    description: Relic definitions with activation duration, triumph effects, and resource costs
+
+  common/resolution_categories:
+    description: Galactic community resolution category groupings and their resolution lists
+
+  common/resolution_groups:
+    description: Galactic community resolution group color and text styling definitions
+
+  common/resolutions:
+    description: Galactic community resolution definitions with voting costs and passage effects
+
+  common/script_values:
+    description: Named reusable numeric value calculations for use across script files
+
+  common/scripted_effects:
+    description: Named reusable effect blocks callable from event and trigger contexts
+
+  common/scripted_loc:
+    description: Dynamic localization key definitions generating context-sensitive text
+
+  common/scripted_modifiers:
+    description: Custom named modifier definitions with display formatting settings
+
+  common/scripted_triggers:
+    description: Named reusable trigger condition blocks callable from script files
+
+  common/scripted_variables:
+    description: Global numeric constant variable definitions shared across script files
+
+  common/section_templates:
+    description: Ship section layout templates defining component slot arrangements by position
+
+  common/sector_focuses:
+    description: AI sector automation priority weights for building and district decisions
+
+  common/sector_types:
+    description: Sector classification type definitions and system scoring rules
+
+  common/ship_behaviors:
+    description: Fleet and ship combat AI movement and engagement behavior definitions
+
+  common/ship_categories:
+    description: Ship category groupings used for filtering by graphical culture
+
+  common/ship_sets:
+    description: Ship set browser groupings for graphical culture categories in empire creation
+
+  common/ship_sizes:
+    description: Ship hull size definitions with stats, speed, and component slot configurations
+
+  common/situations:
+    description: Situation definitions with progress tracks, approaches, and outcome effects
+
+  common/solar_system_initializers:
+    description: Hand-authored star system generation templates for scripted galaxy locations
+
+  common/special_projects:
+    description: Research special project definitions triggered by anomalies and events
+
+  common/specialist_subject_perks:
+    description: Specialist vassal type progression tier perk definitions and modifiers
+
+  common/specialist_subject_types:
+    description: Specialist subject type definitions controlling vassal specialization roles
+
+  common/species_archetypes:
+    description: Species archetype base class definitions controlling trait point pools and inheritance
+
+  common/species_classes:
+    description: Species class definitions for portraits, graphical culture, and trait eligibility
+
+  common/species_names:
+    description: Special-case species name lists for synthetic evolution and unique species
+
+  common/specimens:
+    description: Grand Archive specimen definitions with rarity and display settings
+
+  common/star_classes:
+    description: Star class definitions linking stellar types to planet generation rules
+
+  common/starbase_buildings:
+    description: Starbase and orbital ring building definitions with construction times and effects
+
+  common/starbase_levels:
+    description: Starbase upgrade level definitions with ship size and outliner display settings
+
+  common/starbase_modules:
+    description: Starbase module definitions with component slots and unlock requirements
+
+  common/starbase_types:
+    description: Starbase type definitions and AI design priority weighting rules
+
+  common/start_screen_messages:
+    description: Empire-specific descriptive text definitions shown on the game start screen
+
+  common/static_modifiers:
+    description: Named modifier bundles applied as status effects to countries and planets
+
+  common/storm_types:
+    description: Cosmic storm type definitions with movement configuration and effect modifiers
+
+  common/strategic_resources:
+    description: Strategic resource definitions with market price, storage, and trade settings
+
+  common/system_tooltips:
+    description: Conditional tooltip additions displayed when viewing specific star systems
+
+  common/system_types:
+    description: Star system classification type definitions based on ownership and infrastructure
+
+  common/target_types:
+    description: Combat unit targeting category definitions for weapon and ability targeting
+
+  common/technology:
+    description: Research technology definitions with prerequisites, costs, and unlock effects
+
+  common/terraform:
+    description: Terraforming link definitions specifying valid transformations between planet classes
+
+  common/timeline_events:
+    description: Timeline history event type definitions for the situation log record
+
+  common/tradable_actions:
+    description: Trade deal action definitions providing modifiers or effects over treaty duration
+
+  common/tradition_categories:
+    description: Tradition tree category definitions with adoption bonuses and finish bonuses
+
+  common/traditions:
+    description: Individual tradition definitions within tradition category trees
+
+  common/trait_tags:
+    description: Tag labels grouping species traits by biological and archetype category
+
+  common/traits:
+    description: Species and leader trait definitions with modifiers, costs, and conditions
+
+  common/war_goals:
+    description: War goal type definitions linking casus belli to peace condition options
+
+  common/zone_slots:
+    description: Planet zone slot definitions controlling district layout and zone assignment
+
+  common/zones:
+    description: Planet district zone type definitions controlling buildable zone contents
+
+  events:
+    description: Game event script files for narrative content, effects, and scripted interactions
+
+  prescripted_countries:
+    description: Hand-authored empire definitions used for spawning specific countries at galaxy start
+
+  unchecked_defines:
+    description: Non-simulation UI and interface defines that bypass checksum validation

@@ -268,3 +268,85 @@ def _expand_value(value: Any, indent: int = 0) -> str:
 
     else:
         return f"{prefix}{value}"
+
+
+def get_structure_by_id_tool(
+    ctx: GameContext,
+    symbol: str,
+    glob_pattern: str = "**/*.txt",
+    key_path: str | None = None,
+) -> str:
+    """
+    IDでシンボルに直接ジャンプして構造を取得する。
+
+    テキスト検索でファイルを絞り込んでから parse → find_symbol_block() で確認する。
+    Stellarisのような大型ゲームでも効率的に動作する（パースはマッチしたファイルのみ）。
+
+    Args:
+        ctx: The game context
+        symbol: Symbol ID to find (e.g., "shroud.4135", "end_of_the_cycle")
+        glob_pattern: Glob pattern relative to game directory (default: **/*.txt)
+        key_path: Optional dot-separated path to navigate into nested blocks
+
+    Returns:
+        Compact structure plus the source file path where the symbol was found.
+    """
+    if not ctx.is_initialized or ctx.game_directory is None:
+        return "Error: Game not initialized. Call init_game first."
+
+    game_dir = ctx.game_directory
+
+    # フェーズ1: テキスト検索でファイルを絞り込む（パースなし、高速）
+    candidate_paths = []
+    for path in sorted(game_dir.glob(glob_pattern)):
+        if not path.is_file():
+            continue
+        try:
+            text = path.read_text(encoding="utf-8-sig", errors="replace")
+        except OSError:
+            continue
+        if symbol in text:
+            candidate_paths.append(path)
+
+    if not candidate_paths:
+        return f"Symbol not found: {symbol!r} (no files contain this string)"
+
+    # フェーズ2: 候補ファイルのみパースして定義ブロックを探す
+    found_block = None
+    found_file: str | None = None
+    for path in candidate_paths:
+        try:
+            data = parse_save_file(str(path))
+        except Exception:
+            continue
+        block = ctx.plugin.find_symbol_block(data, symbol)
+        if block is not None:
+            found_block = block
+            found_file = path.relative_to(game_dir).as_posix()
+            break
+
+    if found_block is None or found_file is None:
+        files_str = ", ".join(
+            p.relative_to(game_dir).as_posix() for p in candidate_paths[:5]
+        )
+        suffix = f" (and {len(candidate_paths) - 5} more)" if len(candidate_paths) > 5 else ""
+        return (
+            f"Symbol '{symbol}' appears in {len(candidate_paths)} file(s) as text, "
+            f"but no definition block found.\n"
+            f"Files: {files_str}{suffix}\n"
+            f"Tip: The symbol may be referenced but not defined in these files."
+        )
+
+    # フェーズ3: key_path ナビゲーション（get_structure_tool と同じロジック）
+    display_name = symbol
+    depth = 0
+    if key_path:
+        found_block = _navigate_key_path(found_block, key_path)
+        if found_block is None:
+            return f"Key path not found: {symbol}.{key_path} (found in {found_file})"
+        display_name = f"{symbol}.{key_path}"
+        depth = key_path.count(".") + 1 + len(re.findall(r"\[\d+\]", key_path))
+
+    expand_full = depth >= EXPAND_DEPTH_THRESHOLD
+    structure = _format_structure(display_name, found_block, expand_full=expand_full)
+    return f"# found in: {found_file}\n{structure}"
