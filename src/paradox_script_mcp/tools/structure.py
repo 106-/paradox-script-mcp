@@ -60,7 +60,7 @@ def get_structure_tool(
         if block is None:
             return f"Key path not found: {symbol}.{key_path}"
         display_name = f"{symbol}.{key_path}"
-        depth = key_path.count(".") + 1 + len(re.findall(r'\[\d+\]', key_path))
+        depth = key_path.count(".") + 1 + len(re.findall(r"\[\d+\]", key_path))
 
     # If depth >= threshold, expand fully
     expand_full = depth >= EXPAND_DEPTH_THRESHOLD
@@ -199,7 +199,7 @@ def _navigate_key_path(block: Any, key_path: str) -> Any | None:
             return None
 
         # key[N] format (e.g., "option[0]")
-        m = re.match(r'^(.+)\[(\d+)\]$', key)
+        m = re.match(r"^(.+)\[(\d+)\]$", key)
         if m:
             dict_key, idx = m.group(1), int(m.group(2))
             if dict_key not in current:
