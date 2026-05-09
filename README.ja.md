@@ -101,21 +101,26 @@ get_structure("common/achievements.txt", "no_one_crosses_the_finnish_line", "hap
 
 > \> `achievement_fin_has_lost_one_starting_core` はどのように立ちますか？
 
-> ● このフラグがどこで設定されるか検索します。on_actionsファイルにあるはずです。
+> ● このフラグが全スクリプトファイルのどこで設定されるか検索します。
 
 ```
-list_symbols("common/on_actions/09_aat_on_actions.txt")
-→ block: on_actions
-
-get_structure("common/on_actions/09_aat_on_actions.txt", "on_actions")
-→ on_actions:
-    on_state_control_changed: [block] (1 keys)
-    ...
+search_references("achievement_fin_has_lost_one_starting_core", include_lines=True)
+→ Found in 2 file(s):
+  common/achievements.txt
+    L4693: NOT = { has_global_flag = achievement_fin_has_lost_one_starting_core }
+  common/on_actions/09_aat_on_actions.txt
+    L1699: set_global_flag = achievement_fin_has_lost_one_starting_core
 ```
 
-> ● `on_state_control_changed` フックが関連していそうです。その内容を確認します。
+> ● `09_aat_on_actions.txt` の1699行目で設定されています。その行がどのシンボルに属するか確認します。
 
 ```
+find_symbol_at_line("common/on_actions/09_aat_on_actions.txt", 1699)
+→ symbol: on_actions
+    type: on_actions
+    lines: L2-L4046
+    use: get_structure(file_path, "on_actions")
+
 get_structure("common/on_actions/09_aat_on_actions.txt", "on_actions", "on_state_control_changed.effect")
 → on_actions.on_state_control_changed.effect:
     [0]:
@@ -211,6 +216,61 @@ list_directories()
    ...
 ```
 
+### list_files
+
+ディレクトリ内の `.txt` ファイルを一覧表示します。`list_symbols` や `get_structure` を呼ぶ前にファイル名を調べるのに使います。
+
+```
+list_files("common/national_focus")
+→ afghanistan.txt
+   argentina.txt
+   australia.txt
+   austria.txt
+   ...
+```
+
+### search_references
+
+全スクリプトファイルを横断して文字列を検索します。フラグ名やイベントIDがどのファイルで参照されているかを調べるのに使います。
+
+```
+search_references("achievement_fin_has_lost_one_starting_core")
+→ Found in 2 file(s):
+   common/achievements.txt
+   common/on_actions/09_aat_on_actions.txt
+```
+
+`include_lines=True` にすると行番号と内容も返します：
+
+```
+search_references("CZE_capitulated_germany", include_lines=True)
+→ Found in 2 file(s):
+   common/achievements.txt
+     L7784: has_country_flag = CZE_capitulated_germany
+   common/on_actions/15_mun_on_actions.txt
+     L114: CZE = { set_country_flag = CZE_capitulated_germany }
+```
+
+### find_symbol_at_line
+
+指定した行番号を含むシンボルを返します。`search_references` で行番号を得た後、どのシンボルに属するかを調べるのに使います。
+
+```
+find_symbol_at_line("common/on_actions/15_mun_on_actions.txt", 114)
+→ symbol: on_actions
+    type: on_actions
+    lines: L1-L466
+    use: get_structure(file_path, "on_actions")
+```
+
+```
+find_symbol_at_line("events/MUN_Czechoslovakia.txt", 3030)
+→ symbol: MUN_czech.1034
+    container: country_event
+    lines: L2928-L3192
+    use: get_structure(file_path, "MUN_czech.1034")
+```
+
 ### list_symbols
 
 ファイル内のシンボルを一覧表示します（トップレベルのみ）。
@@ -267,8 +327,9 @@ paradox-script-mcp/
     ├── knowledge/
     │   └── directory_map.py   # HOI4ディレクトリ知識ベース
     └── tools/
-        ├── explore.py         # list_directories
-        ├── symbols.py         # list_symbols
+        ├── explore.py         # list_directories, list_files
+        ├── search.py          # search_references
+        ├── symbols.py         # list_symbols, find_symbol_at_line
         └── structure.py       # get_structure
 ```
 
