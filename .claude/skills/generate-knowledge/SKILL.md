@@ -1,6 +1,6 @@
 ---
 name: generate-knowledge
-description: Generate knowledge YAML for a Paradox game directory. Use this skill when the user wants to create or regenerate `knowledge/{game_type}/directories.yml`, gives a game directory path and asks to scan or analyze it, or wants to add support for a new Paradox game (EU4, CK3, Stellaris, etc.).
+description: Generate knowledge YAML for a Paradox game directory. Use this skill when the user wants to create or regenerate `src/paradox_script_mcp/knowledge/{game_type}/directories.yml`, gives a game directory path and asks to scan or analyze it, or wants to add support for a new Paradox game (EU4, CK3, Stellaris, etc.).
 ---
 
 # generate-knowledge
@@ -45,7 +45,7 @@ From the file names and top-level block structure, write a concise English descr
 
 ### 4. Write the YAML
 
-Output path: `knowledge/{game_type}/directories.yml` relative to this repository root (not inside the game directory).
+Output path: `src/paradox_script_mcp/knowledge/{game_type}/directories.yml` relative to this repository root (not inside the game directory).
 
 **Never include the absolute game path anywhere in the YAML.**
 

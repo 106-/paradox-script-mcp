@@ -198,7 +198,7 @@ app = mcp.streamable_http_app()
 
 def main():
     """Main entry point for the MCP server"""
-    mcp.run(transport="streamable-http")
+    mcp.run()
 
 
 if __name__ == "__main__":
