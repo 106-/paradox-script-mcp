@@ -257,6 +257,8 @@ search_references("CZE_capitulated_germany", include_lines=True)
 
 Find which symbol contains a given line number. Use this after `search_references` returns a line number to identify the owning symbol.
 
+If the line points to a comment or blank line outside any block, returns the nearest symbol instead (with a `note:` field).
+
 ```
 find_symbol_at_line("common/on_actions/15_mun_on_actions.txt", 114)
 → symbol: on_actions
@@ -271,6 +273,16 @@ find_symbol_at_line("events/MUN_Czechoslovakia.txt", 3030)
     container: country_event
     lines: L2928-L3192
     use: get_structure(file_path, "MUN_czech.1034")
+```
+
+```
+# Comment line — falls back to nearest symbol
+find_symbol_at_line("events/shroud_events.txt", 8213)
+→ symbol: shroud.4135
+    container: country_event
+    lines: L8214-L8325
+    note: nearest symbol (line 8213 is outside any block)
+    use: get_structure(file_path, "shroud.4135")
 ```
 
 ### list_symbols
@@ -310,6 +322,39 @@ get_structure(
 → JAP_the_unthinkable_option.completion_reward.hidden_effect:
      add_stability: 0.05
      add_political_power: 120
+```
+
+### get_structure_by_id
+
+Get the structure of a symbol directly by its ID, without knowing which file it lives in. Useful when you spot a reference like `country_event = { id = shroud.4135 }` and want to jump straight to its definition.
+
+Internally combines a fast text search (to narrow down candidate files) with parsing (to confirm the definition), so it works efficiently even with large games like Stellaris.
+
+```
+get_structure_by_id("shroud.4135")
+→ # found in: events/shroud_events.txt
+  shroud.4135:
+    is_triggered_only: "yes"
+    picture_event_data: [block] (2 keys)
+    desc: "shroud.4135.desc"
+    ...
+```
+
+Supports `key_path` the same as `get_structure`:
+
+```
+get_structure_by_id("shroud.4135", key_path="option.0")
+→ # found in: events/shroud_events.txt
+  shroud.4135.option.0:
+    name: "shroud.4135.a"
+    accept_end_of_the_cycle: "yes"
+    ...
+```
+
+Use `glob_pattern` to narrow the search scope for speed:
+
+```
+get_structure_by_id("shroud.4135", glob_pattern="events/**/*.txt")
 ```
 
 ## Adding Support for Other Games
@@ -364,7 +409,7 @@ paradox-script-mcp/
         ├── explore.py         # list_directories, list_files
         ├── search.py          # search_references
         ├── symbols.py         # list_symbols, find_symbol_at_line
-        └── structure.py       # get_structure
+        └── structure.py       # get_structure, get_structure_by_id
 ```
 
 ## Development

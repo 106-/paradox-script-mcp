@@ -255,6 +255,8 @@ search_references("CZE_capitulated_germany", include_lines=True)
 
 指定した行番号を含むシンボルを返します。`search_references` で行番号を得た後、どのシンボルに属するかを調べるのに使います。
 
+指定行がコメント行や空行などブロック外だった場合は、最も近いシンボルをフォールバックとして返します（`note:` フィールドで通知）。
+
 ```
 find_symbol_at_line("common/on_actions/15_mun_on_actions.txt", 114)
 → symbol: on_actions
@@ -269,6 +271,16 @@ find_symbol_at_line("events/MUN_Czechoslovakia.txt", 3030)
     container: country_event
     lines: L2928-L3192
     use: get_structure(file_path, "MUN_czech.1034")
+```
+
+```
+# コメント行を指定した場合 — 最近傍シンボルにフォールバック
+find_symbol_at_line("events/shroud_events.txt", 8213)
+→ symbol: shroud.4135
+    container: country_event
+    lines: L8214-L8325
+    note: nearest symbol (line 8213 is outside any block)
+    use: get_structure(file_path, "shroud.4135")
 ```
 
 ### list_symbols
@@ -308,6 +320,39 @@ get_structure(
 → JAP_the_unthinkable_option.completion_reward.hidden_effect:
      add_stability: 0.05
      add_political_power: 120
+```
+
+### get_structure_by_id
+
+ファイルパスを指定せず、IDだけでシンボルの構造を直接取得します。`country_event = { id = shroud.4135 }` のような参照を見つけたとき、定義元にすぐジャンプするのに便利です。
+
+内部ではテキスト検索（候補ファイルの絞り込み）とパース（定義の確認）を組み合わせており、Stellarisのような大規模ゲームでも効率的に動作します。
+
+```
+get_structure_by_id("shroud.4135")
+→ # found in: events/shroud_events.txt
+  shroud.4135:
+    is_triggered_only: "yes"
+    picture_event_data: [block] (2 keys)
+    desc: "shroud.4135.desc"
+    ...
+```
+
+`get_structure` と同様に `key_path` もサポート：
+
+```
+get_structure_by_id("shroud.4135", key_path="option.0")
+→ # found in: events/shroud_events.txt
+  shroud.4135.option.0:
+    name: "shroud.4135.a"
+    accept_end_of_the_cycle: "yes"
+    ...
+```
+
+`glob_pattern` で検索範囲を絞ることでさらに高速化できます：
+
+```
+get_structure_by_id("shroud.4135", glob_pattern="events/**/*.txt")
 ```
 
 ## 各ゲームへの対応方法
@@ -362,7 +407,7 @@ paradox-script-mcp/
         ├── explore.py         # list_directories, list_files
         ├── search.py          # search_references
         ├── symbols.py         # list_symbols, find_symbol_at_line
-        └── structure.py       # get_structure
+        └── structure.py       # get_structure, get_structure_by_id
 ```
 
 ## 開発
