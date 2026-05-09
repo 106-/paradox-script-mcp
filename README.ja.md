@@ -312,7 +312,39 @@ get_structure(
 
 ## 各ゲームへの対応方法
 
-`src/paradox_script_mcp/knowledge/` 以下にディレクトリやファイルの知識をいれたyamlを置くことで対応できます。現在はHoI4の知識のみ備わっています。
+新しいゲームに対応するには、`knowledge/{game_type}/directories.yml` にスクリプトディレクトリの一覧と用途を記述したYAMLを置く必要があります。
+
+### `/generate-knowledge` スキルを使う（Claude Code）
+
+Claude Codeを使っている場合、組み込みの `/generate-knowledge` スキルでゲームディレクトリを自動スキャンしてYAMLを生成できます。
+
+```
+/generate-knowledge <game_type> <game_path>
+```
+
+例：
+
+```
+/generate-knowledge eu4 "/path/to/Europa Universalis IV"
+/generate-knowledge ck3 "/path/to/Crusader Kings III"
+```
+
+スキルはゲームディレクトリ内の各サブディレクトリにある `.txt` ファイルをサンプリングし、`knowledge/{game_type}/directories.yml` に一行の説明付きで書き出します。`gfx`・`interface`・`music` などの非スクリプトディレクトリは自動的にスキップされます。
+
+### 手動で作成する
+
+`knowledge/{game_type}/directories.yml` を手動で作成することもできます：
+
+```yaml
+# {game_type} Directory Knowledge
+
+directories:
+  some/path:
+    description: Brief purpose in English
+
+  another/path:
+    description: Brief purpose in English
+```
 
 ## プロジェクト構成
 
