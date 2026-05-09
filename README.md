@@ -314,7 +314,39 @@ get_structure(
 
 ## Adding Support for Other Games
 
-You can add support by placing YAML files with directory and file knowledge under `src/paradox_script_mcp/knowledge/`. Currently, only HoI4 knowledge is included.
+To add support for a new game, you need a `knowledge/{game_type}/directories.yml` file that lists the game's script directories and their purposes.
+
+### Using the `/generate-knowledge` skill (Claude Code)
+
+If you are using Claude Code, the built-in `/generate-knowledge` skill can scan a game directory and generate the YAML automatically.
+
+```
+/generate-knowledge <game_type> <game_path>
+```
+
+Examples:
+
+```
+/generate-knowledge eu4 "/path/to/Europa Universalis IV"
+/generate-knowledge ck3 "/path/to/Crusader Kings III"
+```
+
+The skill scans the game directory, samples `.txt` files in each subdirectory, and writes `knowledge/{game_type}/directories.yml` with a one-line description for each directory. Non-script directories (`gfx`, `interface`, `music`, etc.) are skipped automatically.
+
+### Manual
+
+You can also create the YAML manually at `knowledge/{game_type}/directories.yml`:
+
+```yaml
+# {game_type} Directory Knowledge
+
+directories:
+  some/path:
+    description: Brief purpose in English
+
+  another/path:
+    description: Brief purpose in English
+```
 
 ## Project Structure
 
