@@ -152,10 +152,13 @@ def get_structure(file_path: str, symbol: str, key_path: str | None = None) -> s
                (e.g., "JAP_the_unthinkable_option", "japan.1")
         key_path: Optional dot-separated path to navigate into nested blocks
                  (e.g., "completion_reward", "completion_reward.hidden_effect")
+                 Paths with 2+ segments trigger full content expansion instead
+                 of "[block]" placeholders — use this to read nested conditions.
 
     Returns:
         Compact structure showing keys and value types.
         Block values show "[block]" instead of full content.
+        At depth >= 2 (via key_path), blocks are fully expanded.
     """
     return get_structure_tool(_ctx, file_path, symbol, key_path)
 

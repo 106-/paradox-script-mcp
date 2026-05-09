@@ -7,6 +7,7 @@ Files are parsed on demand using paradox-script-parser.
 
 from pathlib import Path
 
+from paradox_script_mcp.core.games import GamePlugin, get_plugin
 from paradox_script_mcp.knowledge.directory_map import load_knowledge
 
 
@@ -21,6 +22,7 @@ class GameContext:
     def __init__(self):
         self._game_directory: Path | None = None
         self._game_type: str | None = None
+        self._plugin: GamePlugin | None = None
 
     def initialize(self, game_directory: str, game_type: str = "hoi4") -> None:
         """
@@ -38,6 +40,7 @@ class GameContext:
 
         self._game_directory = path
         self._game_type = game_type
+        self._plugin = get_plugin(game_type)
 
         # Load knowledge for this game type
         load_knowledge(game_type)
@@ -51,6 +54,13 @@ class GameContext:
     def game_type(self) -> str | None:
         """Get the game type"""
         return self._game_type
+
+    @property
+    def plugin(self) -> GamePlugin:
+        """Get the active game plugin (raises if not initialized)"""
+        if self._plugin is None:
+            raise RuntimeError("Game not initialized. Call initialize() first.")
+        return self._plugin
 
     @property
     def is_initialized(self) -> bool:

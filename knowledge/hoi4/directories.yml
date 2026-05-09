@@ -1,0 +1,272 @@
+# HOI4 Directory Knowledge
+
+directories:
+  common/abilities:
+    description: Active ability definitions for unit/army leaders (e.g., force attack, call for support, border skirmish)
+
+  common/aces:
+    description: Ace pilot modifier pools grouped by aircraft type with random assignment weights and chance values
+
+  common/ai_areas:
+    description: Named AI strategic area groupings (clusters of strategic region IDs used for AI territorial logic)
+
+  common/ai_equipment:
+    description: AI ship and equipment design profiles per country used for automatic production decisions
+
+  common/ai_focuses:
+    description: AI research focus priority weights per country (offensive, defensive, naval, industry, etc.)
+
+  common/ai_strategy:
+    description: AI behavioral strategy scripts controlling alliance, territorial, diplomatic, and wartime decisions
+
+  common/ai_strategy_plans:
+    description: Full AI grand strategy plans with alternate scenario support for different ideology/game rule paths
+
+  common/ai_templates:
+    description: AI division template role assignments (armor, infantry, etc.) with per-country exclusion lists
+
+  common/autonomous_states:
+    description: Subject and puppet autonomy state definitions (freedom levels, manpower rules, overlord color flags)
+
+  common/bookmarks:
+    description: Game start date bookmarks with default countries, ideology hints, and scenario flavor descriptions
+
+  common/bop:
+    description: Balance of power meter definitions for specific countries (sides, value ranges, decision categories)
+
+  common/buildings:
+    description: Building type definitions (factories, infrastructure, fortifications, ports) with slot rules and modifiers
+
+  common/characters:
+    description: Named character definitions including country leaders, generals, admirals, and advisor portraits/traits
+
+  common/collections:
+    description: Scripted country/state set definitions used as filter input arrays in triggers and effects
+
+  common/countries:
+    description: Country color (RGB) and graphical culture (unit model style) base definitions
+
+  common/country_leader:
+    description: Country leader trait definitions with political power cap increases, experience gain, and ideology scope
+
+  common/country_tag_aliases:
+    description: Dynamic country tag aliases that map a 3-letter tag to a variable, event target, or conditional country
+
+  common/country_tags:
+    description: Master registry mapping every 3-letter country tag to its country definition file path
+
+  common/decisions:
+    description: Player and AI decision definitions with availability triggers, cost, AI weights, and scripted effects
+
+  common/difficulty_settings:
+    description: Custom difficulty modifier assignments per country with AI strength multipliers
+
+  common/doctrines/grand_doctrines:
+    description: Top-level doctrine tree root nodes for land, air, and sea grand strategy selection
+
+  common/doctrines/tracks:
+    description: Doctrine specialty track definitions (fighter aircraft mastery, carrier ops, blitzkrieg, etc.)
+
+  common/dynamic_modifiers:
+    description: Variable-driven modifier blocks whose values are read from script variables at runtime
+
+  common/equipment_groups:
+    description: MIO equipment category group definitions (light tank, destroyer, etc.) used in production policy bonuses
+
+  common/factions/goals:
+    description: Faction long/medium/short-term goal definitions that guide faction AI behavior and expansion
+
+  common/factions/member_upgrades:
+    description: Faction member manpower sharing upgrade tier definitions with bonus values (e.g., 5%/10%/15% sharing)
+
+  common/factions/rules:
+    description: Faction behavior rule definitions (call to war, leader dismissal, government-in-exile eligibility)
+
+  common/factions/templates:
+    description: Named faction template definitions (Allies, Axis, Comintern, etc.) with goals and joining conditions
+
+  common/factions/upgrades:
+    description: Faction-level upgrade definitions (file present but currently empty in base game)
+
+  common/focus_inlay_windows:
+    description: Scripted GUI inlay panel definitions embedded within national focus tree UI windows
+
+  common/game_rules:
+    description: Game rule option definitions displayed in the game setup screen before scenario start
+
+  common/generation:
+    description: Idea slot auto-generation rules mapping advisor categories (high_command, army_chief, theorist, etc.) to skill conditions for countries without explicit characters
+
+  common/idea_tags:
+    description: Idea slot category definitions (hidden_ideas, minister types, designer slots) with ledger assignments
+
+  common/ideas:
+    description: National ideas, advisors, ministers, and designer trait definitions per country with research bonuses
+
+  common/ideologies:
+    description: Ideology type definitions (democratic, fascism, communism, neutrality) with sub-ideology groupings
+
+  common/intelligence_agencies:
+    description: Intelligence agency name pools and logo graphic assignments with country-specific defaults
+
+  common/intelligence_agency_upgrades:
+    description: Spy agency upgrade tree definitions (economy, military, counter-intel branches) with effects and AI weights
+
+  common/medals:
+    description: Career profile medal definitions with visual ribbon frame indices and tint color layers
+
+  common/military_industrial_organization/ai_bonus_weights:
+    description: AI priority weight definitions for selecting MIO research and production bonuses
+
+  common/military_industrial_organization/organizations:
+    description: Military industrial organization definitions per country (tank factories, shipyards, aircraft manufacturers)
+
+  common/military_industrial_organization/policies:
+    description: MIO policy definitions providing research and production bonuses per equipment category
+
+  common/modifier_definitions:
+    description: Pre-declarations required for custom modifier variables before they can be used in static_modifiers blocks
+
+  common/modifiers:
+    description: Global static modifier definitions (weather penalties, terrain effects, supply modifiers, power balance)
+
+  common/mtth:
+    description: Named MTTH value definitions referenceable in scripts via set_variable = { a = mtth:<entry_name> } (base game file is empty/template only)
+
+  common/names:
+    description: Ace pilot, unit officer, and operation name pools by nationality including callsigns and strategic region sub-pools
+
+  common/national_focus:
+    description: National focus tree definitions with prerequisite chains, completion effects, AI weights, and UI style rules
+
+  common/occupation_laws:
+    description: Occupation policy definitions for territories with visibility, compliance effects, and resistance modifiers
+
+  common/on_actions:
+    description: Engine event hook definitions (on_startup, on_war_end, on_state_control_changed, etc.) with scripted effects
+
+  common/operation_phases:
+    description: Multi-phase intelligence operation phase definitions with names, descriptions, and equipment costs
+
+  common/operation_tokens:
+    description: Intelligence network token type definitions (infiltrated army, airforce, navy) with intel source and gain values
+
+  common/operations:
+    description: Spy operation definitions (rescue operative, stage coup, sabotage, steal blueprints) with phase and network requirements
+
+  common/opinion_modifiers:
+    description: Diplomatic opinion modifier definitions with value, monthly decay, duration, and trade flag settings
+
+  common/peace_conference/ai_peace:
+    description: AI desire scripts for peace conference action priorities (annexation, puppet, take states, war reparations)
+
+  common/peace_conference/categories:
+    description: Peace conference action category definitions grouping available peace deal action types
+
+  common/peace_conference/cost_modifiers:
+    description: Per-country and generic peace action cost modifier definitions used during conference negotiations
+
+  common/profile_backgrounds:
+    description: Career profile background image unlock definitions with icon GFX references and unlock conditions
+
+  common/profile_pictures:
+    description: Career profile avatar picture unlock definitions with icon references and CP threshold unlocks
+
+  common/raids:
+    description: Air and naval raid mission type definitions with preparation days, AI weights, and target facility types
+
+  common/resistance_activity:
+    description: Resistance sabotage activity type definitions for occupied territories with weight and duration rules
+
+  common/resistance_compliance_modifiers:
+    description: Compliance threshold modifier effects applied to occupied states (detection chance, state modifiers)
+
+  common/resources:
+    description: Strategic resource type definitions (oil, aluminium, rubber, steel, chromium, tungsten) with CIC and convoy costs
+
+  common/ribbons:
+    description: Career profile decoration ribbon visual definitions with frame indices and multi-layer tint colors
+
+  common/scientist_traits:
+    description: Special project scientist trait definitions with research speed and project-specific modifier bonuses
+
+  common/script_constants:
+    description: Named country group arrays and numeric constant definitions for reuse across script files
+
+  common/scripted_diplomatic_actions:
+    description: Custom diplomatic action definitions with allowed/visible/selectable triggers and on-accept effects
+
+  common/scripted_effects:
+    description: Reusable named effect blocks callable by name from any script scope to avoid repetition
+
+  common/scripted_guis:
+    description: Scripted GUI panel context type and window name bindings for decisions, focus trees, and custom UI
+
+  common/scripted_localisation:
+    description: Dynamic localization key definitions that select display text based on trigger conditions at runtime
+
+  common/scripted_triggers:
+    description: Reusable named trigger blocks callable by name from any script scope for condition checking
+
+  common/special_projects/project_tags:
+    description: Tag definitions used to categorize special research projects (aircraft, bomb, rocket, ship, etc.)
+
+  common/special_projects/projects:
+    description: Special research project definitions for land, air, naval, and nuclear programs with specialization requirements
+
+  common/special_projects/prototype_rewards:
+    description: Prototype reward definitions granted upon special project completion (equipment unlocks, bonuses)
+
+  common/special_projects/specialization:
+    description: Scientist specialization tree definitions controlling which special project categories a scientist can work on
+
+  common/state_category:
+    description: State category definitions (wasteland, rural, town, city, megalopolis) with local building slot counts
+
+  common/strategic_locations:
+    description: Named strategic location type definitions assigning base building slots (harbor, chokepoint, coastline)
+
+  common/technologies:
+    description: Technology tree node definitions with research prerequisites, unlock effects, equipment enables, and folder placement
+
+  common/technology_sharing:
+    description: Technology sharing group definitions for factions providing research bonus per participating member country
+
+  common/technology_tags:
+    description: Technology category tag list used to organize the research tree and guide AI research priorities
+
+  common/terrain:
+    description: Terrain type definitions with movement cost, combat penalties, supply modifiers, and naval terrain flags
+
+  common/timed_activities:
+    description: Timed activity type definitions specifying equipment and resource costs (e.g., stage_coup preparation)
+
+  common/unit_leader:
+    description: Unit leader skill level definitions, trait trees, and ability unlock conditions for army/navy/air commanders
+
+  common/unit_medals:
+    description: Unit-level medal definitions granting division and corps modifier bonuses as awards
+
+  common/unit_tags:
+    description: Sub-unit category tag list (tanks, infantry, artillery, special forces) used for battalion filtering
+
+  common/units:
+    description: Sub-unit (battalion and support company) type definitions with manpower, equipment needs, and combat stats
+
+  common/wargoals:
+    description: War goal type definitions with availability conditions, state targeting rules, and peace action bindings
+
+  events:
+    description: Country and world event definitions with namespaces, trigger conditions, options, and scripted effects
+
+  history/countries:
+    description: Initial country setup files defining capital, ruling party, technology, laws, and starting political situation
+
+  history/general:
+    description: Shared character and advisor definitions used across multiple countries (e.g., Chinese shared advisors)
+
+  history/states:
+    description: State definitions with owner, core tags, manpower, victory point values, and starting building levels
+
+  history/units:
+    description: Starting division templates and orders of battle (OOB) files per country and scenario date
