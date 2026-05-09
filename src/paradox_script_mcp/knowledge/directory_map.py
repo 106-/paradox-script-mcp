@@ -43,7 +43,7 @@ class DirectoryKnowledge:
         Args:
             game: Game identifier (e.g., "hoi4", "eu4")
         """
-        knowledge_dir = Path(__file__).parent / game
+        knowledge_dir = Path(__file__).parents[3] / "knowledge" / game
         yml_path = knowledge_dir / "directories.yml"
 
         if not yml_path.exists():
