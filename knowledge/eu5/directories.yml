@@ -1,0 +1,403 @@
+# eu5 Directory Knowledge
+# Auto-generated — review and correct descriptions as needed.
+# Paths are relative to game/in_game/ (the mod root).
+
+directories:
+  common/advances:
+    description: Technology advance definitions grouped by age, covering economic, military, and governance improvements
+
+  common/age:
+    description: Age definitions with year boundaries, price stability modifiers, and goods demand adjustments per era
+
+  common/ai_diplochance:
+    description: AI weight modifiers for diplomatic actions such as royal marriages, alliances, and truces
+
+  common/ai_personalities:
+    description: AI behavioral personality profiles with willingness-to-war, tolerance, and resource priority modifiers
+
+  common/alert_descriptions:
+    description: In-game alert icon definitions with priority levels and localization keys for player notifications
+
+  common/area_preferences:
+    description: AI exploration and conquest area preference definitions with directional modifier weights
+
+  common/artist_types:
+    description: Artist profession type definitions (painter, sculptor, composer, writer, architect, etc.)
+
+  common/artist_work:
+    description: Artwork type definitions with allowed artist types for cultural production
+
+  common/attribute_columns:
+    description: UI column layout definitions for sortable list views (name, cost, sort buttons)
+
+  common/auto_modifiers:
+    description: Automatically applied country modifiers triggered by societal values or culture/language conditions
+
+  common/avatars:
+    description: Hindu divine avatar definitions (Matsya, Kurma, etc.) with country and location modifiers
+
+  common/biases:
+    description: Opinion modifier definitions for diplomatic relationships (war, culture, religion, trust)
+
+  common/building_categories:
+    description: Category tags for classifying building types (RGO, industry, government, infrastructure)
+
+  common/building_types:
+    description: Building definitions with pop employment slots, construction requirements, and settlement level restrictions
+
+  common/bureaucracies:
+    description: Special bureaucracy system definitions with implementation costs and estate relationship rules
+
+  common/cabinet_actions:
+    description: Ongoing country actions assigned to cabinet minister ability slots with country modifiers
+
+  common/casus_belli:
+    description: War justification definitions linking declare conditions to war goal types
+
+  common/character_interactions:
+    description: Character-level action definitions (assign despot, educate heir, court assignments, etc.)
+
+  common/child_educations:
+    description: Child education option definitions with character attribute growth modifiers
+
+  common/climates:
+    description: Climate zone definitions with population capacity, food decay, migration, and unit modifiers
+
+  common/country_description_categories:
+    description: Taxonomy categories (diplomatic, administrative, military) for classifying country attribute descriptions
+
+  common/country_interactions:
+    description: Country-to-country diplomatic interaction definitions with potential, allow, and AI conditions
+
+  common/country_ranks:
+    description: Country rank tier definitions (duchy to empire) with diplomacy range, fort limits, and prestige modifiers
+
+  common/culture_groups:
+    description: Culture group definitions with shared country, character, and location modifiers
+
+  common/cultures:
+    description: Individual culture definitions with language, map color, name lists, and culture group membership
+
+  common/customizable_localization:
+    description: Script-driven dynamic localization strings evaluated per country context (e.g. order of chivalry names)
+
+  common/death_reason:
+    description: Character death reason type definitions used in death notification messages
+
+  common/designated_heir_reason:
+    description: Reason type definitions for why a character is marked as designated heir
+
+  common/diplomatic_costs:
+    description: Resource cost definitions for diplomatic action categories (spy network, favors, gold)
+
+  common/disasters:
+    description: Scripted disaster event chain definitions with monthly spawn chances and start/end conditions
+
+  common/diseases:
+    description: Disease definitions with monthly spawn logic, outbreak conditions, and spread mechanics
+
+  common/effect_localization:
+    description: Localization key mappings for scripted effect descriptions shown in tooltips
+
+  common/employment_systems:
+    description: Employment system type definitions governing pop labor priority with societal value modifiers
+
+  common/estate_privileges:
+    description: Privilege definitions that can be granted to estates, with estate power and country modifiers
+
+  common/estates:
+    description: Estate definitions (nobles, clergy, burghers, peasants, etc.) with power, tax, and satisfaction mechanics
+
+  common/ethnicities:
+    description: Character ethnicity template definitions derived from gene data for portrait rendering
+
+  common/formable_countries:
+    description: Formable nation definitions with cultural or territorial requirements and content priority levels
+
+  common/generic_action_ai_lists:
+    description: Curated action lists used by the AI in specific disaster or situation contexts
+
+  common/generic_actions:
+    description: General scripted country actions with type, potential, allow, and AI conditions
+
+  common/genes:
+    description: Genetic trait definitions for character physical appearance (hair, skin, eye color, aging)
+
+  common/gods:
+    description: God definitions shared across religion groups with culture-specific name keys
+
+  common/goods:
+    description: Trade good definitions with market prices, transport costs, origin flags, and pop demand
+
+  common/goods_demand:
+    description: Demand entries for goods from unit recruitment/maintenance, building operations, and pop needs
+
+  common/goods_demand_category:
+    description: Category labels for goods demand aggregation and UI display (pop_needs, regiment_construction, etc.)
+
+  common/government_reforms:
+    description: Government reform definitions with societal value shifts, country modifiers, and law effects
+
+  common/government_types:
+    description: Top-level government type definitions (monarchy, republic, theocracy) with succession law options
+
+  common/hegemons:
+    description: Hegemon status definitions (economic, military, etc.) with gain and lose conditions
+
+  common/heir_selections:
+    description: Succession law definitions determining how heirs are selected (primogeniture, elective, tanistry, etc.)
+
+  common/historical_scores:
+    description: Reference score benchmarks for historically notable rulers and nations used in end-game scoring
+
+  common/holy_site_types:
+    description: Holy site category definitions (shrine, mountain, etc.) with location modifiers
+
+  common/holy_sites:
+    description: Specific holy site definitions linked to province locations and religion groups
+
+  common/institution:
+    description: Historical institution definitions (feudalism, manufactories, etc.) with spawn and adoption mechanics
+
+  common/insults:
+    description: Diplomatic insult type definitions with trigger conditions for inter-country use
+
+  common/international_organization_land_ownership_rules:
+    description: Location modifier rules applied to land owned by international organizations
+
+  common/international_organization_payments:
+    description: Payment and contribution systems for international organization members
+
+  common/international_organization_special_statuses:
+    description: Special status definitions within international organizations (e.g. curia for the papacy)
+
+  common/international_organizations:
+    description: International organization definitions (HRE, Catholic Church, autocephalous patriarchates, etc.)
+
+  common/join_war_rules:
+    description: Trigger rules governing when third-party countries can join an active war as allies
+
+  common/language_families:
+    description: Language family groupings (Celtic, Romance, Germanic, Slavic, etc.) with map display colors
+
+  common/languages:
+    description: Language definitions with male/female name lists and dynasty names for procedural character naming
+
+  common/laws:
+    description: Law definitions with government group restrictions, tradition modifiers, and societal value effects
+
+  common/levies:
+    description: Levy type definitions specifying unit type and allowed pop types for military recruitment
+
+  common/location_ranks:
+    description: Settlement rank definitions (village to megalopolis) with population capacity and estate modifiers
+
+  common/missions:
+    description: Mission chain definitions with selection weights, visibility triggers, and completion conditions
+
+  common/movements:
+    description: Political and religious movement definitions with spawn conditions and monthly chance
+
+  common/on_action:
+    description: Script hooks that fire on game events (on_game_start, monthly ticks, character events, etc.)
+
+  common/parliament_agendas:
+    description: Parliamentary agenda definitions for estate-driven debate topics
+
+  common/parliament_issues:
+    description: Specific parliamentary debate issue definitions with estate restrictions and in-debate modifiers
+
+  common/parliament_types:
+    description: Parliamentary system type definitions (assembly, no_parliament, etc.) with governance modifiers
+
+  common/peace_treaties:
+    description: Peace treaty term definitions with warscore costs, antagonism values, and transfer conditions
+
+  common/persistent_dna:
+    description: Historical character portrait DNA data for notable rulers, linking tags to gene/appearance values
+
+  common/pop_types:
+    description: Population type definitions (nobles, peasants, burghers, soldiers, clergy, etc.) with growth and food mechanics
+
+  common/prices:
+    description: Price definitions for government actions, road construction, and diplomatic costs
+
+  common/production_methods:
+    description: Building production method definitions with goods input/output ratios and allow conditions
+
+  common/recruitment_method:
+    description: Unit training method definitions (normal, elite, rushed) with build time and strength modifiers
+
+  common/regencies:
+    description: Regency type definitions triggered by succession law and heir age conditions
+
+  common/religion_groups:
+    description: Top-level religion group definitions (christian, muslim, buddhist, etc.) with slave and clergy rules
+
+  common/religions:
+    description: Individual religion definitions with group membership, language, karma, and definition modifiers
+
+  common/religious_aspects:
+    description: Religion-specific doctrine and aspect definitions with opinion effects and country modifiers
+
+  common/religious_factions:
+    description: Internal religious faction definitions with associated generic actions
+
+  common/religious_figures:
+    description: Religious figure character role definitions (scholar, patriarch) with enabled religion conditions
+
+  common/religious_focuses:
+    description: Religious reform focus definitions with monthly progress mechanics and conversion effects
+
+  common/religious_schools:
+    description: Religious school and denomination definitions (Samkhya, etc.) with modifiers and enabled triggers
+
+  common/resolutions:
+    description: International organization resolution definitions with allow conditions, targets, and voting effects
+
+  common/rival_criteria:
+    description: Country-specific AI rivalry rules and country-to-country relation constraints
+
+  common/road_types:
+    description: Road type definitions (gravel, paved) with movement speed, market access, and construction costs
+
+  common/script_values:
+    description: Reusable named numeric value definitions referenced across scripts and modifiers
+
+  common/scriptable_hints:
+    description: UI contextual hint definitions with per-frame trigger conditions for player guidance
+
+  common/scripted_country_names:
+    description: Dynamic country name definitions evaluated from culture, capital province, or tag triggers
+
+  common/scripted_diplomatic_objectives:
+    description: AI long-term diplomatic objective definitions with actor and target trigger conditions
+
+  common/scripted_effects:
+    description: Reusable named effect macros used in events, decisions, and on_action hooks
+
+  common/scripted_geography:
+    description: Named geographic groupings (province lists, canal areas) for use in scripted triggers and effects
+
+  common/scripted_guis:
+    description: GUI state logic definitions for scripted interface elements like taxation setup panels
+
+  common/scripted_lists:
+    description: Filtered character or country list definitions for iteration in scripts (courtier, general, etc.)
+
+  common/scripted_relations:
+    description: Diplomatic relation type definitions (agitate for liberty, covert actions, etc.) with cost and category
+
+  common/scripted_triggers:
+    description: Reusable named trigger macros with parameterized conditions for portraits and script logic
+
+  common/situations:
+    description: World situation definitions (Black Death, Reformation) with spawn conditions and global effects
+
+  common/societal_values:
+    description: Societal value axis definitions (centralization vs decentralization, etc.) with left/right modifier poles
+
+  common/subject_military_stances:
+    description: Subject state military AI behavior stance definitions with chase and defend priority weights
+
+  common/subject_types:
+    description: Subject country type definitions (pronoia, vassal, tributary, etc.) with payment and privilege rules
+
+  common/tests:
+    description: Automated game logic test definitions with success conditions, year ranges, and fail-on-end flags
+
+  common/topography:
+    description: Terrain topography type definitions (flatland, hills, mountains) with movement cost and weather effects
+
+  common/town_rights:
+    description: Special town charter definitions (staple port, etc.) with location modifiers and allow conditions
+
+  common/town_setups:
+    description: Default building configuration presets applied during town initialization by region type
+
+  common/trait_flavor:
+    description: Trait flavor category color definitions for UI display (personality, government approach, interests)
+
+  common/traits:
+    description: Character trait definitions with modifiers, allow conditions, categories, and flavor groupings
+
+  common/trigger_localization:
+    description: Localization key mappings for scripted trigger condition descriptions shown in tooltips
+
+  common/tutorial_lesson_chains:
+    description: Tutorial lesson chain timing constants and sequential lesson entry point definitions
+
+  common/tutorial_lessons:
+    description: Individual tutorial lesson definitions with GUI widget highlights and instructional text
+
+  common/unit_abilities:
+    description: Special unit ability definitions (e.g. absorb_pops) with army/navy flags and visibility conditions
+
+  common/unit_categories:
+    description: Military unit category definitions (light infantry, heavy cavalry, artillery, etc.) with combat stats
+
+  common/unit_formation_preference:
+    description: Army formation preset definitions with unit type weighting for left/right/center positions
+
+  common/unit_types:
+    description: Individual military unit type definitions with category, buildability, and empty-template flags
+
+  common/vegetation:
+    description: Vegetation zone definitions (desert, forest, grasslands) with movement, development, and food modifiers
+
+  common/wargoals:
+    description: War goal type definitions with warscore costs, conquer/subjugate ratios, and post-war territory rules
+
+  events:
+    description: Root-level event files covering ages, civil wars, HRE, institutions, rebels, and other cross-cutting topics
+
+  events/DHE:
+    description: DLC-specific historical flavor events (Fate of the Phoenix and other paid DLC content)
+
+  events/ai_area_conqest_events:
+    description: AI-driven area conquest scripted event triggers
+
+  events/character:
+    description: Character-focused events for artists, education outcomes, and personal narrative moments
+
+  events/colonization:
+    description: Colonial charter and colonization process events
+
+  events/culture:
+    description: Cultural shift, identity, and assimilation events
+
+  events/debug:
+    description: Developer debug and testing events not intended for players
+
+  events/diplomacy:
+    description: Diplomatic relationship, alliance, and rivalry interaction events
+
+  events/disaster:
+    description: Disaster event chains (Fate of the Phoenix and other scripted crises)
+
+  events/economy:
+    description: Economic events covering banking, Fugger rise, trade, and market shocks
+
+  events/estates:
+    description: Estate satisfaction, privilege request, and estate conflict events
+
+  events/exploration:
+    description: Exploration voyage and new world discovery events
+
+  events/government:
+    description: Government reform, societal value shift, and ruling dynasty events
+
+  events/missionevents:
+    description: Mission completion narrative and reward events
+
+  events/religion:
+    description: Religious conversion, reformation, schism, and patriarch events
+
+  events/situations:
+    description: World situation event chains (Black Death, Reformation, etc.)
+
+  map_data:
+    description: Map region, area, and province definition files with topography, vegetation, and raw material assignments
+
+  setup/countries:
+    description: Country tag color and secondary color setup definitions for map display
