@@ -14,6 +14,9 @@ Paradoxのゲームスクリプトはプレインテキストで書かれてお�
 
 ## 使用例: 実績の調査
 
+<details>
+<summary>HOI4実績「No One Crosses the Finnish Line」の調査例</summary>
+
 このMCPを使用してHOI4の実績「[No One Crosses the Finnish Line](https://hoi4.paradoxwikis.com/No_one_crosses_the_finnish_line)」を調査する実際の会話例です。
 
 ---
@@ -147,39 +150,63 @@ get_structure("common/on_actions/09_aat_on_actions.txt", "on_actions", "on_state
 >
 >ソ連の侵攻時に一切の領土を失わない完璧な防衛が必要です。
 
-## インストール
+</details>
+
+## 対応ゲーム
+
+| ゲーム | game_type |
+|--------|-----------|
+| 🪖 Hearts of Iron IV | `hoi4` |
+| ⭐️ Stellaris | `stellaris` |
+| 🧭 Europa Universalis V | `eu5` |
+
+## 利用方法
+
+### 利用者向け
+
+#### 1. uv をインストール
 
 ```bash
-# uvを使用（推奨）
-uv pip install -e .
-
-# またはpip
-pip install -e .
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-### 依存関係
+#### 2. Claude / Claude Code に設定する
 
-- Python >= 3.11
-- [mcp](https://github.com/modelcontextprotocol/python-sdk) >= 1.0.0
-- [paradox-script-parser](https://github.com/106-/paradox-script-parser) - 自作のParadoxスクリプトパーサー
+使用するクライアントの `.mcp.json` に追加します：
+
+```json
+{
+  "mcpServers": {
+    "paradox-script": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/106-/paradox-script-mcp",
+        "paradox-script-mcp"
+      ]
+    }
+  }
+}
+```
+
+クライアントを再起動すると、`uvx` が自動でサーバーを起動します。インストール作業は不要です。
 
 > **Note:** paradox-script-parserは自作のパーサーであり、Paradoxスクリプトの全ての構文に対応しているわけではありません。一部のスクリプトが正しくパースされない可能性があります。
 
-## 使い方
-
-### サーバー起動
+### 開発者向け
 
 ```bash
-# ホットリロード付き（開発用）
+# 開発用インストール
+uv pip install -e .
+
+# ホットリロードで実行（streamable-http、ポート8000）
 make serve
 
-# または直接実行
-uv run paradox-script-mcp
+# テスト実行
+make test
 ```
 
-### Claude Code設定
-
-`.mcp.json` に追加:
+`make serve` で起動した場合は、`.mcp.json` に以下の設定を使います：
 
 ```json
 {
@@ -357,7 +384,7 @@ get_structure_by_id("shroud.4135", glob_pattern="events/**/*.txt")
 
 ## 各ゲームへの対応方法
 
-新しいゲームに対応するには、`knowledge/{game_type}/directories.yml` にスクリプトディレクトリの一覧と用途を記述したYAMLを置く必要があります。
+新しいゲームに対応するには、`src/paradox_script_mcp/knowledge/{game_type}/directories.yml` にスクリプトディレクトリの一覧と用途を記述したYAMLを置く必要があります。
 
 ### `/generate-knowledge` スキルを使う（Claude Code）
 
@@ -374,11 +401,11 @@ Claude Codeを使っている場合、組み込みの `/generate-knowledge` ス�
 /generate-knowledge ck3 "/path/to/Crusader Kings III"
 ```
 
-スキルはゲームディレクトリ内の各サブディレクトリにある `.txt` ファイルをサンプリングし、`knowledge/{game_type}/directories.yml` に一行の説明付きで書き出します。`gfx`・`interface`・`music` などの非スクリプトディレクトリは自動的にスキップされます。
+スキルはゲームディレクトリ内の各サブディレクトリにある `.txt` ファイルをサンプリングし、`src/paradox_script_mcp/knowledge/{game_type}/directories.yml` に一行の説明付きで書き出します。`gfx`・`interface`・`music` などの非スクリプトディレクトリは自動的にスキップされます。
 
 ### 手動で作成する
 
-`knowledge/{game_type}/directories.yml` を手動で作成することもできます：
+`src/paradox_script_mcp/knowledge/{game_type}/directories.yml` を手動で作成することもできます：
 
 ```yaml
 # {game_type} Directory Knowledge
@@ -410,15 +437,3 @@ paradox-script-mcp/
         └── structure.py       # get_structure, get_structure_by_id
 ```
 
-## 開発
-
-```bash
-# 開発用インストール
-uv pip install -e .
-
-# ホットリロードで実行
-make serve
-
-# テスト実行
-make test
-```

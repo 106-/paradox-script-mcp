@@ -16,6 +16,9 @@ It can be used from MCP-compatible clients such as Claude, Claude Code, gemini-c
 
 ## Example: Investigating an Achievement
 
+<details>
+<summary>HOI4 achievement "No One Crosses the Finnish Line" investigation</summary>
+
 Here's a real conversation example of using this MCP to investigate the HOI4 achievement "[No One Crosses the Finnish Line](https://hoi4.paradoxwikis.com/No_one_crosses_the_finnish_line)".
 
 ---
@@ -149,39 +152,63 @@ get_structure("common/on_actions/09_aat_on_actions.txt", "on_actions", "on_state
 >
 >A perfect defense that loses no territory to the Soviet invasion is required.
 
-## Installation
+</details>
 
-```bash
-# Using uv (recommended)
-uv pip install -e .
+## Supported Games
 
-# Or pip
-pip install -e .
-```
-
-### Dependencies
-
-- Python >= 3.11
-- [mcp](https://github.com/modelcontextprotocol/python-sdk) >= 1.0.0
-- [paradox-script-parser](https://github.com/106-/paradox-script-parser) - A custom Paradox script parser
-
-> **Note:** paradox-script-parser is a custom parser and does not support all Paradox script syntax. Some scripts may not be parsed correctly.
+| Game | game_type |
+|------|-----------|
+| 🪖 Hearts of Iron IV | `hoi4` |
+| ⭐️ Stellaris | `stellaris` |
+| 🧭 Europa Universalis V | `eu5` |
 
 ## Usage
 
-### Start Server
+### For users
+
+#### 1. Install uv
 
 ```bash
-# With hot reload (development)
-make serve
-
-# Or directly
-uv run paradox-script-mcp
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-### Claude Code Configuration
+#### 2. Configure Claude / Claude Code
 
-Add to `.mcp.json`:
+Add to your client's `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "paradox-script": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/106-/paradox-script-mcp",
+        "paradox-script-mcp"
+      ]
+    }
+  }
+}
+```
+
+Restart your client — `uvx` will launch the server automatically. No manual installation needed.
+
+> **Note:** paradox-script-parser is a custom parser and does not support all Paradox script syntax. Some scripts may not be parsed correctly.
+
+### For developers
+
+```bash
+# Install for development
+uv pip install -e .
+
+# Run with hot reload (streamable-http, port 8000)
+make serve
+
+# Run tests
+make test
+```
+
+When using `make serve`, configure `.mcp.json` as:
 
 ```json
 {
@@ -359,7 +386,7 @@ get_structure_by_id("shroud.4135", glob_pattern="events/**/*.txt")
 
 ## Adding Support for Other Games
 
-To add support for a new game, you need a `knowledge/{game_type}/directories.yml` file that lists the game's script directories and their purposes.
+To add support for a new game, you need a `src/paradox_script_mcp/knowledge/{game_type}/directories.yml` file that lists the game's script directories and their purposes.
 
 ### Using the `/generate-knowledge` skill (Claude Code)
 
@@ -376,11 +403,11 @@ Examples:
 /generate-knowledge ck3 "/path/to/Crusader Kings III"
 ```
 
-The skill scans the game directory, samples `.txt` files in each subdirectory, and writes `knowledge/{game_type}/directories.yml` with a one-line description for each directory. Non-script directories (`gfx`, `interface`, `music`, etc.) are skipped automatically.
+The skill scans the game directory, samples `.txt` files in each subdirectory, and writes `src/paradox_script_mcp/knowledge/{game_type}/directories.yml` with a one-line description for each directory. Non-script directories (`gfx`, `interface`, `music`, etc.) are skipped automatically.
 
 ### Manual
 
-You can also create the YAML manually at `knowledge/{game_type}/directories.yml`:
+You can also create the YAML manually at `src/paradox_script_mcp/knowledge/{game_type}/directories.yml`:
 
 ```yaml
 # {game_type} Directory Knowledge
@@ -412,15 +439,3 @@ paradox-script-mcp/
         └── structure.py       # get_structure, get_structure_by_id
 ```
 
-## Development
-
-```bash
-# Install for development
-uv pip install -e .
-
-# Run with hot reload
-make serve
-
-# Run tests
-make test
-```
