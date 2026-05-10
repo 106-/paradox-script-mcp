@@ -329,7 +329,11 @@ def get_structure_by_id_tool(
         files_str = ", ".join(
             p.relative_to(game_dir).as_posix() for p in candidate_paths[:5]
         )
-        suffix = f" (and {len(candidate_paths) - 5} more)" if len(candidate_paths) > 5 else ""
+        suffix = (
+            f" (and {len(candidate_paths) - 5} more)"
+            if len(candidate_paths) > 5
+            else ""
+        )
         return (
             f"Symbol '{symbol}' appears in {len(candidate_paths)} file(s) as text, "
             f"but no definition block found.\n"

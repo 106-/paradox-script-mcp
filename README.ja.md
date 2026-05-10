@@ -157,8 +157,10 @@ get_structure("common/on_actions/09_aat_on_actions.txt", "on_actions", "on_state
 | ゲーム | game_type |
 |--------|-----------|
 | 🪖 Hearts of Iron IV | `hoi4` |
-| ⭐️ Stellaris | `stellaris` |
+| 🌠 Stellaris | `stellaris` |
 | 🧭 Europa Universalis V | `eu5` |
+| 🚂 Victoria 3 | `vic3` |
+| 👑 Crusader Kings 3 | `ck3` |
 
 ## 利用方法
 

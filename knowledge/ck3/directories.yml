@@ -1,0 +1,537 @@
+# ck3 Directory Knowledge
+# Auto-generated — review and correct descriptions as needed.
+
+directories:
+  common/accolade_icons:
+    description: Icon path definitions for accolade type categories
+
+  common/accolade_names:
+    description: Procedural name templates for accolades using category options and triggers
+
+  common/accolade_types:
+    description: Category tag definitions used to classify and filter accolade types (militant, ethical, champion, etc.)
+
+  common/achievements:
+    description: Steam achievement definitions with scripted unlock conditions
+
+  common/activities/activity_group_types:
+    description: UI grouping categories for activities (sort order, button tags)
+
+  common/activities/activity_locales:
+    description: Activity location/venue definitions with on_enter event triggers
+
+  common/activities/activity_types:
+    description: Playable activity type definitions (tournament, pilgrimage, feast, hunt, etc.)
+
+  common/activities/guest_invite_rules:
+    description: Rules determining which characters get invited to activities
+
+  common/activities/intents:
+    description: Activity intent definitions for participant goals and auto-completion conditions
+
+  common/ai_goaltypes:
+    description: AI strategic goal type definitions (expand, etc.)
+
+  common/ai_war_stances:
+    description: AI war behavior stance definitions for attacker and defender roles
+
+  common/artifacts/blueprints:
+    description: Artifact conversion blueprint definitions for repurposing artifacts into display pieces
+
+  common/artifacts/features:
+    description: Artifact visual decoration feature definitions (patterns, inlays, etc.)
+
+  common/artifacts/slots:
+    description: Character inventory slot type definitions for equipping artifacts
+
+  common/artifacts/templates:
+    description: Artifact template definitions with can_equip and can_benefit trigger conditions
+
+  common/bookmark_portraits:
+    description: Auto-generated portrait gene data for named bookmark scenario characters
+
+  common/bookmarks/bookmarks:
+    description: Bookmark scenario definitions with start dates, playability flags, and group assignments
+
+  common/bookmarks/groups:
+    description: Bookmark group definitions that bundle scenarios by start date
+
+  common/buildings:
+    description: Holding building definitions with construction requirements, costs, and modifiers
+
+  common/casus_belli_groups:
+    description: Casus belli group type definitions that restrict when war types are available (e.g., religious wars)
+
+  common/casus_belli_types:
+    description: Individual casus belli definitions with conditions, target rules, and on_declaration effects
+
+  common/character_backgrounds:
+    description: Starting background option definitions mapping selectable backgrounds to traits
+
+  common/character_interaction_categories:
+    description: UI tab and category definitions for grouping character interactions in the interaction panel
+
+  common/character_interactions:
+    description: Playable character interaction definitions with availability conditions and outcome effects
+
+  common/character_memory_types:
+    description: Character memory event type definitions with multi-perspective descriptions
+
+  common/coat_of_arms/coat_of_arms:
+    description: Coat of arms design definitions for titles and holy orders
+
+  common/combat_effects:
+    description: Combat terrain and situation advantage modifier definitions (river crossing, strait, etc.)
+
+  common/combat_phase_events:
+    description: Random battle phase event definitions for commanders during combat
+
+  common/confederation_types:
+    description: Confederation type definitions with on_join and membership management effects
+
+  common/connection_arrows:
+    description: Trade route and geographic connection arrow definitions linking province sequences
+
+  common/console_groups:
+    description: Debug console command shader group definitions for developer use
+
+  common/council_positions:
+    description: Council member role definitions with skills, name rules, and government conditions
+
+  common/council_tasks:
+    description: Council member task definitions with effects, progress tracking, and AI weights
+
+  common/court_amenities:
+    description: Court amenity option definitions (fashion, food, etc.) with costs and AI selection weights
+
+  common/court_positions/types:
+    description: Court position appointment definitions (eparch, jester, etc.) with skill requirements
+
+  common/court_types:
+    description: Court type definitions (diplomatic, warlike, etc.) with cultural availability conditions
+
+  common/courtier_guest_management:
+    description: Rules governing when courtiers and guests leave courts and monthly departure chance
+
+  common/culture/aesthetics_bundles:
+    description: Culture visual aesthetic bundle definitions for UI portrait borders and clothing
+
+  common/culture/cultures:
+    description: Culture definitions with ethos, heritage, language, martial custom, and traditions
+
+  common/culture/eras:
+    description: Culture era definitions used to gate innovation unlock timing
+
+  common/customizable_localization:
+    description: Dynamic localization function definitions for context-sensitive string generation
+
+  common/deathreasons:
+    description: Death cause definitions with public knowledge flags, icons, and priority values
+
+  common/decision_group_types:
+    description: UI grouping category definitions for organizing decisions (sort order, button tags)
+
+  common/decisions:
+    description: Player decision definitions with picture, availability conditions, costs, and effects
+
+  common/defines:
+    description: Global game constants and numerical parameters (end date, speed, benchmark, etc.)
+
+  common/diarchies/diarchy_types:
+    description: Diarchy and co-rulership type definitions with start conditions and power-sharing rules
+
+  common/dna_data:
+    description: Named historical character DNA and portrait gene data used for consistent portraits
+
+  common/domiciles/types:
+    description: Domicile type definitions (camp, estate) for landless characters with map pin settings
+
+  common/dynasties:
+    description: Dynasty definitions with numeric IDs, names, cultures, and prefixes
+
+  common/dynasty_house_motto_inserts:
+    description: Weighted word lists used for procedural dynasty house motto generation
+
+  common/dynasty_house_mottos:
+    description: Template structures for combining word inserts into dynasty house mottos
+
+  common/dynasty_houses:
+    description: Dynasty house definitions linking houses to parent dynasties
+
+  common/dynasty_legacies:
+    description: Dynasty legacy track unlock condition and visibility definitions
+
+  common/dynasty_perks:
+    description: Dynasty legacy perk definitions with character modifier effects and AI selection weights
+
+  common/effect_localization:
+    description: Localization key mappings for scripted effect description display in first, third, and past tenses
+
+  common/epidemics:
+    description: Disease and epidemic type definitions with trait associations and map shader data
+
+  common/ethnicities:
+    description: Ethnic appearance group definitions mapping to genetic feature ranges for portraits
+
+  common/event_2d_effects:
+    description: 2D overlay visual effect definitions (rain, fog, flies) for event screen display
+
+  common/event_backgrounds:
+    description: Event background scene definitions with audio event references
+
+  common/event_themes:
+    description: Event theme category definitions for grouping music and visual style
+
+  common/event_transitions:
+    description: Screen transition animation definitions used between event scenes
+
+  common/factions:
+    description: Vassal faction type definitions with casus belli, discontent progression, and visibility conditions
+
+  common/flavorization:
+    description: Title and role name flavorization rules by culture, religion, gender, and tier
+
+  common/focuses:
+    description: Character education and lifestyle focus definitions with skill associations
+
+  common/game_concepts:
+    description: Encyclopedia and tooltip concept entry definitions with aliases and parent concepts
+
+  common/game_rules:
+    description: Configurable game rule option definitions with apply_modifier effects
+
+  common/genes:
+    description: Character genetic feature definitions (color inheritance, facial morphology parameters)
+
+  common/governments:
+    description: Government type definitions with flags and rules (create_cadet_branches, legitimacy, etc.)
+
+  common/graphical_unit_types:
+    description: Military unit visual appearance type mappings to graphical culture groups
+
+  common/great_projects/types:
+    description: Great project (wonder) type definitions with construction requirements and modifiers
+
+  common/guest_system:
+    description: Guest character pool destination and movement logic definitions
+
+  common/holdings:
+    description: Holding type definitions (castle, city, temple, tribal) with primary building and building slot lists
+
+  common/hook_types:
+    description: Hook (leverage) type definitions with strength, expiration, and secret requirements
+
+  common/house_aspirations:
+    description: Dynasty house attribute/aspiration definitions for the administrative government system
+
+  common/house_relation_types:
+    description: Inter-house diplomatic relation type definitions with neutral level and creation triggers
+
+  common/house_unities:
+    description: House unity mechanic definitions for clan government with phase thresholds and on_start effects
+
+  common/important_actions:
+    description: Alert and UI notification action definitions shown as prompts to the player
+
+  common/inspirations:
+    description: Artifact commission (inspiration) cost definitions and craftsman behavior rules
+
+  common/landed_titles:
+    description: Title hierarchy definitions from baronies to empires with capital, color, and scoring rules
+
+  common/laws:
+    description: Realm law definitions including succession, crown authority, and government-specific laws
+
+  common/lease_contracts:
+    description: Theocracy lease and ecclesiastical vassal contract definitions
+
+  common/legends/chronicles:
+    description: Legend chronicle variable and property type definitions used in legend templates
+
+  common/legends/legend_types:
+    description: Legend type definitions with prestige on_start effects and display colors
+
+  common/legitimacy:
+    description: Character legitimacy tier definitions by ruler rank with validity and opinion penalty rules
+
+  common/lifestyle_perks:
+    description: Lifestyle perk tree node definitions with effects, position, and AI selection weights
+
+  common/lifestyles:
+    description: Lifestyle definitions (diplomacy, martial, stewardship, intrigue, learning) with XP rules
+
+  common/men_at_arms_types:
+    description: Military unit type definitions with recruitment costs, maintenance, provisions, and counter relationships
+
+  common/message_filter_types:
+    description: Message and notification display filter category definitions (toast, popup, group)
+
+  common/message_group_types:
+    description: Message feed grouping category definitions (character, family, council, etc.)
+
+  common/messages:
+    description: In-game notification, toast, and message popup definitions with sound and display rules
+
+  common/modifier_definition_formats:
+    description: Display format specifications for specific named modifiers (decimal places, etc.)
+
+  common/modifier_icons:
+    description: Icon path assignments for positive and negative modifier display
+
+  common/modifiers:
+    description: Named modifier definitions with character, army, and realm stat effects
+
+  common/named_colors:
+    description: Named color value definitions for cultures, languages, and other map entities
+
+  common/nicknames:
+    description: Character nickname definitions with optional is_bad flags
+
+  common/on_action:
+    description: Event hook definitions triggered by specific game system events (on_birth, on_death, etc.)
+
+  common/opinion_modifiers:
+    description: Opinion modifier definitions with value, duration, and decay settings
+
+  common/playable_difficulty_infos:
+    description: Playable difficulty situation indicator definitions shown to help players gauge challenge
+
+  common/pool_character_selectors:
+    description: Pool character selection scoring and filter rules for auto-generated title holders
+
+  common/portrait_types:
+    description: Portrait rendering configuration with gene color palette mappings and age/sex settings
+
+  common/province_terrain:
+    description: Province ID to terrain type mapping file (flat assignments, one per line)
+
+  common/raids/intents:
+    description: Raiding intent definitions with speed modifiers and loot behavior rules
+
+  common/religion/doctrine_group_types:
+    description: Religion doctrine grouping category definitions (hostility, gender, succession, etc.)
+
+  common/religion/doctrine_types:
+    description: Individual religious doctrine parameter definitions with hostility values and visibility
+
+  common/religion/holy_site_types:
+    description: Holy site definitions with county location, character modifier bonuses, and faith conditions
+
+  common/ruler_objective_advice_types:
+    description: Ruler objective guidance and advice type definitions linked to specific decisions
+
+  common/schemes/scheme_types:
+    description: Intrigue scheme type definitions (abduct, seduce, murder, etc.) with skill, category, and phase rules
+
+  common/script_values:
+    description: Reusable named numerical value expressions used throughout scripts for consistent values
+
+  common/scripted_animations:
+    description: Portrait animation selection trigger definitions for weapon-wielding and posture states
+
+  common/scripted_character_templates:
+    description: Reusable character generation template definitions for events and scripted spawning
+
+  common/scripted_costs:
+    description: Reusable named cost expression definitions for actions, decisions, and interactions
+
+  common/scripted_effects:
+    description: Reusable named effect block definitions for complex repeated logic
+
+  common/scripted_guis:
+    description: GUI-callable scripted effect and interface interaction definitions
+
+  common/scripted_lists:
+    description: Named filtered object list definitions (powerful_vassal, theocratic_ruler, etc.) for scripting
+
+  common/scripted_modifiers:
+    description: Named modifier collection definitions for reuse across activities and events
+
+  common/scripted_relations:
+    description: Character relation type definitions (friend, rival, nemesis, etc.) with opinion and flag rules
+
+  common/scripted_rules:
+    description: Named trigger rule definitions used by code-called game systems (can_command_troops, etc.)
+
+  common/scripted_triggers:
+    description: Reusable named trigger condition definitions for complex or frequently repeated checks
+
+  common/secret_types:
+    description: Character secret type definitions with validity, shunning, and crime conditions
+
+  common/situation/situations:
+    description: Dynamic world situation definitions with phases, participation, and catalyst triggers
+
+  common/story_cycles:
+    description: Story cycle narrative arc definitions with progress variables and visualization settings
+
+  common/struggle/struggles:
+    description: Regional political struggle definitions with involved cultures, phases, and catalyst triggers
+
+  common/subject_contracts/contracts:
+    description: Vassal obligation contract level definitions (levy, tax, and special rights tiers)
+
+  common/succession_appointment:
+    description: Appointment-based succession candidate pool and scoring rules (administrative government)
+
+  common/succession_election:
+    description: Electoral succession voter logic and candidate scoring definitions
+
+  common/suggestions:
+    description: Gameplay suggestion and hint definitions shown to the player with weighted conditions
+
+  common/task_contracts:
+    description: Administrative governor task contract definitions with group, travel, and validity rules
+
+  common/tax_slots/types:
+    description: Tax slot type definitions with default and available obligation assignments (clan government)
+
+  common/terrain_types:
+    description: Terrain type definitions with travel danger scores, supply limits, and county fertility
+
+  common/traits:
+    description: Character trait definitions (personality, education, physical, lifestyle) with compatibility and modifiers
+
+  common/travel/point_of_interest_types:
+    description: Travel point of interest type definitions used to populate journey waypoints
+
+  common/travel/travel_options:
+    description: Travel option definitions for journey customization with validity and effect conditions
+
+  common/trigger_localization:
+    description: Localization text binding definitions for displaying trigger descriptions in tooltips
+
+  common/tutorial_lesson_chains:
+    description: Tutorial lesson chain sequence and timer definitions for the onboarding system
+
+  common/tutorial_lessons:
+    description: Individual tutorial lesson step definitions with UI interaction and animation settings
+
+  common/vassal_stances:
+    description: Vassal AI behavior stance definitions scored by personality traits (courtly, ambitious, etc.)
+
+  data_binding:
+    description: GUI data binding macro definitions for accessing script values and scopes in UI code
+
+  events:
+    description: Top-level event files organized by namespace (accolade, birth, etc.)
+
+  events/activities:
+    description: Activity system events (host change, completion, guest management)
+
+  events/artifacts:
+    description: Artifact acquisition, discovery, and interaction event definitions
+
+  events/councillor_task_events:
+    description: Council member task progress and outcome event definitions
+
+  events/court_events:
+    description: Court activity, visitor arrival, and royal court event definitions
+
+  events/courtier_guest_management_events:
+    description: Courtier and guest arrival, departure, and management event definitions
+
+  events/culture_events:
+    description: Cultural change, divergence, and innovation adoption event definitions
+
+  events/death_events:
+    description: Character death cause, inheritance, and succession event definitions
+
+  events/decisions_events:
+    description: Events triggered as part of player decision execution flows
+
+  events/diarchy_events:
+    description: Diarchy, regency, and co-rulership event definitions
+
+  events/education_and_childhood:
+    description: Character education progress and childhood development event definitions
+
+  events/factions:
+    description: Vassal faction formation, growth, and war event definitions
+
+  events/government_events:
+    description: Government type change and transition event definitions
+
+  events/interaction_events:
+    description: Character interaction outcome and follow-up event definitions
+
+  events/legacy_events:
+    description: Dynasty legacy completion and reward event definitions
+
+  events/lifestyles:
+    description: Lifestyle perk unlock and focus progress event definitions
+
+  events/nickname_events:
+    description: Events that grant or remove character nicknames based on achievements
+
+  events/notification_events:
+    description: Background notification-only event definitions without player choices
+
+  events/prison_events:
+    description: Prisoner escape, ransom, execution, and prison condition event definitions
+
+  events/relations_events:
+    description: Friend, rival, nemesis, and other relationship formation event definitions
+
+  events/religion_events:
+    description: Religious conversion, faith creation, and holy war event definitions
+
+  events/scheme_events:
+    description: Intrigue scheme phase progress, discovery, and outcome event definitions
+
+  events/secret_events:
+    description: Character secret discovery, exposure, and blackmail event definitions
+
+  events/situation_events:
+    description: Dynamic situation catalyst and phase transition event definitions
+
+  events/story_cycles:
+    description: Story cycle narrative progression event definitions
+
+  events/stress_events:
+    description: Character stress gain, mental break, and stress relief event definitions
+
+  events/test_events:
+    description: Developer debug and test event definitions (not intended for production use)
+
+  events/trait_specific_events:
+    description: Events tied to specific character trait conditions and interactions
+
+  events/travel_events:
+    description: Travel journey encounter and destination arrival event definitions
+
+  events/war_events:
+    description: Military campaign, siege, battle outcome, and war exhaustion event definitions
+
+  events/yearly_events:
+    description: Annual recurring random event definitions fired on yearly pulse
+
+  history/artifacts:
+    description: Starting artifact ownership and property history definitions
+
+  history/characters:
+    description: Historical character biographical definitions (birth, death, dynasty, culture, religion)
+
+  history/cultures:
+    description: Culture innovation discovery history organized by date entries
+
+  history/province_mapping:
+    description: Province ID remapping and alias definitions for consolidated map data
+
+  history/provinces:
+    description: Province starting state definitions (culture, religion, holding type) organized by barony ID
+
+  history/situations:
+    description: World situation starting condition and initial phase definitions
+
+  history/struggles:
+    description: Regional struggle starting date, phase, and initial participant definitions
+
+  history/titles:
+    description: Title holder and government type history organized by date entries
+
+  history/wars:
+    description: Historical war definitions with start/end dates, casus belli, and participant lists
+
+  notifications:
+    description: System dialog, popup, and notification window definitions with title and button text

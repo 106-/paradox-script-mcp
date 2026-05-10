@@ -1,0 +1,474 @@
+# vic3 Directory Knowledge
+# Auto-generated — review and correct descriptions as needed.
+
+directories:
+  common/acceptance_statuses:
+    description: Cultural acceptance tier threshold definitions with discrimination and migration modifiers
+
+  common/achievements:
+    description: Steam achievement definitions with possible and happened trigger conditions
+
+  common/ai_strategic_region_stance_types:
+    description: AI stance type definitions for strategic region interests (conquer, protect, etc.)
+
+  common/ai_strategies:
+    description: AI behavioral strategy definitions controlling spending priorities, infamy limits, and diplomatic goals
+
+  common/alert_groups:
+    description: Named group definitions for categorizing related UI alert types
+
+  common/alert_types:
+    description: UI alert definitions with triggers, icons, and panel/popup links for player notifications
+
+  common/amendments:
+    description: Law amendment definitions that add modifiers on top of existing laws with scripted conditions
+
+  common/battle_conditions:
+    description: Land battle condition type definitions with combat modifiers (pursuit, retreat, etc.)
+
+  common/building_groups:
+    description: Hierarchical building category definitions with shared economic rules (land usage, scaling, slavery)
+
+  common/buildings:
+    description: Building type definitions with production method groups, construction costs, and AI properties
+
+  common/buy_packages:
+    description: Pop wealth tier consumption basket definitions mapping wealth levels to goods quantities
+
+  common/character_interactions:
+    description: Player-triggered interaction definitions targeting characters with cooldowns and AI chance
+
+  common/character_roles:
+    description: Role type definitions assignable to characters (ruler, heir, general, admiral, politician, etc.)
+
+  common/character_templates:
+    description: Templates for procedurally generating characters with culture, religion, age, and role parameters
+
+  common/character_traits:
+    description: Character trait definitions with modifiers for stats, command, country, and agitator effects
+
+  common/cohesion_levels:
+    description: Power bloc cohesion threshold level definitions with leverage and mandate modifiers
+
+  common/combat_unit_experience_levels:
+    description: Veterancy level definitions for combat units with experience thresholds and stat bonuses
+
+  common/combat_unit_groups:
+    description: Combat unit category group definitions (infantry, artillery, cavalry) with display colors
+
+  common/combat_unit_types:
+    description: Individual military unit type definitions with manpower, supply, and battle modifier stats
+
+  common/commander_orders:
+    description: Order type definitions that generals and admirals can issue to military formations
+
+  common/commander_ranks:
+    description: Commander promotion rank tier definitions with command limit and modifier bonuses
+
+  common/company_charter_types:
+    description: Company charter type definitions with conditions and cooldown durations
+
+  common/company_types:
+    description: Company definitions specifying preferred buildings, headquarters states, and historical flavor
+
+  common/console_command_macros:
+    description: Scripted console command alias definitions for debugging and testing
+
+  common/country_creation:
+    description: Scripted conditions and state requirements for creating new countries via events or decisions
+
+  common/country_definitions:
+    description: Core country definitions specifying tag, map color, culture, capital state, and rank tier
+
+  common/country_formation:
+    description: Unification condition definitions for forming existing countries from other tags
+
+  common/country_ranks:
+    description: Country rank tier definitions (great power, major power, etc.) with prestige thresholds and effects
+
+  common/country_types:
+    description: Country type classification definitions (recognized, decentralized, colonial) with capability flags
+
+  common/culture_graphics:
+    description: Graphical culture group assignments used for portrait rendering selection
+
+  common/cultures:
+    description: Culture definitions with heritage, language, religion, name lists, and obsessions
+
+  common/customizable_localization:
+    description: Dynamic localization text definitions using scripted conditions to select localization keys
+
+  common/decisions:
+    description: Country-scope decision definitions with show, possible, and when_taken triggers and effects
+
+  common/decrees:
+    description: State-level decree definitions with modifiers, authority costs, and unlocking conditions
+
+  common/defines:
+    description: Global numeric constants and configuration parameters for game mechanics (NAI, NEconomy, etc.)
+
+  common/diplomatic_actions:
+    description: Diplomatic action type definitions available between countries with potential and selectable triggers
+
+  common/diplomatic_catalyst_categories:
+    description: Duration category definitions for diplomatic catalyst cooldowns
+
+  common/diplomatic_catalysts:
+    description: Catalyst event definitions that trigger shifts in AI diplomatic attitudes and goal recalculation
+
+  common/diplomatic_plays:
+    description: Diplomatic crisis and war declaration template definitions with war goals and infamy rules
+
+  common/discrimination_trait_groups:
+    description: Group definitions for organizing heritage and religion discrimination traits by region
+
+  common/discrimination_traits:
+    description: Individual heritage and religious discrimination trait definitions with group assignments
+
+  common/dna_data:
+    description: Character DNA appearance data files for portrait generation (gene values per character)
+
+  common/dynamic_company_names:
+    description: Name template definitions for procedurally generated company names based on country or goods
+
+  common/dynamic_country_map_colors:
+    description: Conditional map color override definitions applied to countries under specific triggers
+
+  common/dynamic_country_names:
+    description: Conditional country name and adjective definitions applied under scripted trigger conditions
+
+  common/dynamic_treaty_names:
+    description: Name template definitions for procedurally generated treaty names based on location or type
+
+  common/effect_localization:
+    description: Localization key mappings linking scripted effect names to their displayed descriptions
+
+  common/ethnicities:
+    description: Ethnicity appearance template definitions controlling gene ranges for character portrait generation
+
+  common/flag_definitions:
+    description: Country flag and coat-of-arms selection logic with priority triggers and canton rules
+
+  common/game_concepts:
+    description: In-game encyclopedia concept entry definitions with icons and loading tip flags
+
+  common/game_rules:
+    description: Configurable game rule option definitions (AI behavior, achievements, loyalties grace period, etc.)
+
+  common/genes:
+    description: Portrait gene type definitions for physical appearance traits (hair, skin, eye color, morphology)
+
+  common/geographic_regions:
+    description: Geographic region definitions grouping strategic regions for map filter and trigger use
+
+  common/goods:
+    description: Trade good type definitions with base prices, categories, prestige factors, and traded quantities
+
+  common/government_types:
+    description: Government form definitions with ruler titles, transfer of power rules, and formation conditions
+
+  common/harvest_condition_types:
+    description: Natural disaster and weather condition type definitions with incompatibility and weight rules
+
+  common/history/ai:
+    description: Historical AI variable initialization setting country-specific diplomatic tendencies at game start
+
+  common/history/buildings:
+    description: Starting building levels, ownership, and production method activations per state at game start
+
+  common/history/characters:
+    description: Starting character creation assignments for countries using character templates
+
+  common/history/conscription:
+    description: Initial conscription method setup applied across countries at game start
+
+  common/history/countries:
+    description: Starting country property assignments (technology tier, politics, conscription levels)
+
+  common/history/cultures:
+    description: Initial culture fervor value assignments across countries at game start
+
+  common/history/diplomacy:
+    description: Starting diplomatic pacts (alliances, embargoes, etc.) established between countries
+
+  common/history/diplomatic_plays:
+    description: Starting diplomatic crises and active war definitions at game start
+
+  common/history/global:
+    description: Final global history effects executed after all other history files (journal entries, modifiers)
+
+  common/history/government_setup:
+    description: Starting ruling coalition composition assignments for countries
+
+  common/history/governments:
+    description: Starting ruling party assignments for countries at game start
+
+  common/history/lobbies:
+    description: Starting political lobby definitions linking interest groups to foreign country interests
+
+  common/history/military_deployments:
+    description: Starting military formation deployment positions and mobilization states
+
+  common/history/military_formations:
+    description: Starting army and fleet composition definitions with unit types and counts per state
+
+  common/history/political_movements:
+    description: Starting political movement initializations for countries at game start
+
+  common/history/pops:
+    description: Starting pop size and culture composition definitions per state region
+
+  common/history/population:
+    description: Starting population wealth level and literacy baseline assignments per country
+
+  common/history/power_blocs:
+    description: Starting power bloc definitions with founding dates, identities, principles, and members
+
+  common/history/production_methods:
+    description: Starting active production method assignments per building type per country
+
+  common/history/states:
+    description: Starting state ownership, province assignments, and homeland culture definitions
+
+  common/history/trade:
+    description: Starting trade flow (exports and imports) assignments per state region
+
+  common/history/treaties:
+    description: Starting treaty definitions with articles, parties, and entry-into-force dates
+
+  common/ideologies:
+    description: Political ideology definitions with law approval ratings and character behavior settings
+
+  common/institutions:
+    description: Government institution type definitions with per-level modifier effects
+
+  common/interest_group_traits:
+    description: Trait definitions for interest groups with approval requirements and modifier effects
+
+  common/interest_groups:
+    description: Interest group type definitions with ideologies, pop associations, and display properties
+
+  common/interest_tier_types:
+    description: Tiered diplomatic interest level definitions with trade advantages and involvement limits
+
+  common/journal_entries:
+    description: Ongoing narrative objective definitions with on_monthly_pulse effects and completion conditions
+
+  common/journal_entry_groups:
+    description: Journal entry grouping category definitions for UI organization
+
+  common/labels:
+    description: Terrain label type definitions providing named combat modifier sets for provinces
+
+  common/law_groups:
+    description: Law category group definitions with base enactment days and approval multiplier settings
+
+  common/laws:
+    description: Political law definitions with modifiers, interest group approval effects, and progressiveness
+
+  common/legitimacy_levels:
+    description: Government legitimacy threshold level definitions with radical and loyalty modifier effects
+
+  common/liberty_desire_levels:
+    description: Subject liberty desire threshold level definitions with valid war goals and modifier effects
+
+  common/map_interaction_types:
+    description: Map-clickable interaction type definitions specifying map modes and click sounds
+
+  common/map_notification_types:
+    description: Map notification widget type definitions with zoom visibility thresholds and sounds
+
+  common/messages:
+    description: In-game message and notification type definitions with display format and sound settings
+
+  common/military_formation_flags:
+    description: Icon definitions for military formation identity flags (army and fleet emblems)
+
+  common/mobilization_option_groups:
+    description: Category group definitions for organizing military mobilization options with weights
+
+  common/mobilization_options:
+    description: Military mobilization option definitions with upkeep goods modifiers and availability conditions
+
+  common/modifier_type_definitions:
+    description: Display metadata definitions for all modifier types (decimals, color, percent, AI value)
+
+  common/named_colors:
+    description: Named color definitions in RGB/HSV for use in script and UI elements
+
+  common/naval_battle_conditions:
+    description: Naval battle condition type definitions with possible triggers and weight calculations
+
+  common/naval_mission_types:
+    description: Fleet mission type definitions (project power, intercept, etc.) with AI behavior flags
+
+  common/objective_subgoal_categories:
+    description: Category definitions for campaign and tutorial objective subgoals with exclusivity settings
+
+  common/objective_subgoals:
+    description: Individual objective subgoal definitions with trigger conditions and tutorial lesson links
+
+  common/objectives:
+    description: Campaign objective set definitions grouping subgoals with recommended tags and game rules
+
+  common/on_actions:
+    description: Script hook definitions triggered by engine events (game start, character death, law enactment, etc.)
+
+  common/opinion_modifiers:
+    description: Named opinion change modifier definitions with values and decay rates
+
+  common/parties:
+    description: Political party type definitions with conditional names, colors, and ideology associations
+
+  common/political_lobbies:
+    description: Political lobby type definitions representing foreign country interests within an interest group
+
+  common/political_lobby_appeasement:
+    description: Lobby appeasement action definitions with duration and usability conditions
+
+  common/political_movement_categories:
+    description: Category definitions for political movements with support thresholds and identity flags
+
+  common/political_movement_pop_support:
+    description: Named pop support factor definitions used to explain why pops support political movements
+
+  common/political_movements:
+    description: Political movement type definitions with ideology, character ideologies, and disband conditions
+
+  common/pop_needs:
+    description: Pop consumption need definitions linking wealth tier goods to market supply weights
+
+  common/pop_types:
+    description: Pop type definitions (academics, aristocrats, laborers, etc.) with wages, literacy, and political properties
+
+  common/power_bloc_coa_pieces:
+    description: Coat-of-arms piece definitions for power bloc visual customization (shields, centers, frames)
+
+  common/power_bloc_identities:
+    description: Power bloc identity type definitions with member and leader modifier effects
+
+  common/power_bloc_map_textures:
+    description: Map pattern texture definitions for power bloc territory visualization
+
+  common/power_bloc_names:
+    description: Name template definitions for power blocs with trigger conditions and weights
+
+  common/power_bloc_principle_groups:
+    description: Group definitions organizing power bloc upgrade principles into tiers with identity links
+
+  common/power_bloc_principles:
+    description: Individual power bloc principle definitions with member and leader modifier effects
+
+  common/prestige_goods:
+    description: Prestige variant good definitions based on base trade goods with bonus and DLC conditions
+
+  common/production_method_groups:
+    description: Group definitions organizing production method variants available for buildings
+
+  common/production_methods:
+    description: Production method definitions with employment counts, input/output goods, and unlock conditions
+
+  common/proposal_types:
+    description: Diplomatic proposal type definitions with popup links and pending approval durations
+
+  common/religions:
+    description: Religion type definitions with heritage group, color, and icon properties
+
+  common/script_values:
+    description: Named reusable numeric value definitions for use across scripts and triggers
+
+  common/scripted_buttons:
+    description: Scripted button definitions for journal entry and event UI with visible and AI chance conditions
+
+  common/scripted_effects:
+    description: Reusable named effect block definitions callable from events, decisions, and on_actions
+
+  common/scripted_guis:
+    description: Scripted GUI widget definitions with scoped effects for in-game debug and UI panels
+
+  common/scripted_lists:
+    description: Reusable named entity list definitions with base scope and filter conditions
+
+  common/scripted_progress_bars:
+    description: Journal entry progress bar definitions with monthly progress and completion effects
+
+  common/scripted_rules:
+    description: Named boolean wrapper definitions bridging script and hardcoded engine rule checks
+
+  common/scripted_triggers:
+    description: Reusable named trigger block definitions callable from events, decisions, and conditions
+
+  common/ship_groups:
+    description: Ship category group definitions (capital ships, cruisers, etc.) with AI weight and color
+
+  common/ship_modification_slots:
+    description: Equipment slot type definitions (armor, guns, propulsion, range) for ship customization
+
+  common/ship_modifications:
+    description: Individual ship modification definitions with stat changes and construction goods costs
+
+  common/ship_name_definitions:
+    description: Historical ship name list definitions organized by country tag and allowed ship types
+
+  common/ship_types:
+    description: Ship type definitions with group assignments, flagship eligibility, and obsolescence conditions
+
+  common/social_classes:
+    description: Social class definitions linking pop strata tiers to allowed profession types
+
+  common/social_hierarchies:
+    description: Social hierarchy system definitions with pop eligibility criteria for class assignment
+
+  common/state_traits:
+    description: Permanent state modifier definitions based on geography or resources with tech unlock conditions
+
+  common/static_modifiers:
+    description: Global hardcoded modifier value definitions applied by the engine (base values, rank bonuses, etc.)
+
+  common/strait_definitions:
+    description: Canal and strait geographic connection definitions with province endpoints
+
+  common/strategic_regions:
+    description: Strategic region definitions grouping states with graphical culture and map color
+
+  common/subject_types:
+    description: Subject relationship type definitions (protectorate, dominion, etc.) with rights and obligations
+
+  common/technology/eras:
+    description: Technology era definitions with research cost parameters for each historical period
+
+  common/technology/technologies:
+    description: Individual technology definitions with era, category, modifier effects, and AI weights
+
+  common/terrain:
+    description: Terrain type definitions with province weight calculation scripts and texture references
+
+  common/terrain_manipulators:
+    description: Terrain type conversion tool definitions for the map editor with mask and city type settings
+
+  common/themes:
+    description: UI theme and skin definitions (main menu images, GUI skins) with bulk selection groups
+
+  common/treaty_articles:
+    description: Treaty article type definitions (alliance, trade agreement, etc.) with costs and relation effects
+
+  common/trigger_localization:
+    description: Localization key mappings for scripted trigger descriptions used in tooltips
+
+  common/tutorial_lesson_chains:
+    description: Tutorial lesson sequence definitions with timer constants and chain ordering
+
+  common/tutorial_lessons:
+    description: Individual tutorial lesson step definitions with UI highlights and GUI transition buttons
+
+  common/war_goal_types:
+    description: War goal type definitions with validation rules, annex settings, and infamy effects
+
+  events:
+    description: Country, character, state, and other event definitions with triggers, options, and effects
+
+  map_data:
+    description: Generated province-to-terrain type mapping data (province hex ID to terrain name)
+
+  notifications:
+    description: UI notification type definitions for game messages with window, level, and category settings
