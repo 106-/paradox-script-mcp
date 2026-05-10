@@ -11,7 +11,10 @@ from paradox_script_mcp.core.game import GameContext
 from paradox_script_mcp.tools.explore import list_directories_tool, list_files_tool
 from paradox_script_mcp.tools.search import search_references_tool
 from paradox_script_mcp.tools.symbols import find_symbol_at_line_tool, list_symbols_tool
-from paradox_script_mcp.tools.structure import get_structure_by_id_tool, get_structure_tool
+from paradox_script_mcp.tools.structure import (
+    get_structure_by_id_tool,
+    get_structure_tool,
+)
 
 # Global game context instance
 _ctx = GameContext()

@@ -178,18 +178,22 @@ def _collect_all_candidates(raw_data: dict, get_span) -> list[dict]:
                 item_id = item_data.get("id", "") if isinstance(item_data, dict) else ""
                 name = item_data.get("name", "") if isinstance(item_data, dict) else ""
                 label = item_id or name or "(unnamed)"
-                results.append({
-                    "label": label,
-                    "container": key,
-                    "span": item_span,
-                    "use": f'get_structure(file_path, "{label}")',
-                })
+                results.append(
+                    {
+                        "label": label,
+                        "container": key,
+                        "span": item_span,
+                        "use": f'get_structure(file_path, "{label}")',
+                    }
+                )
 
         elif isinstance(value_data, dict):
             if top_span is None:
                 continue
             for child_key, child_val in value_data.items():
-                child_data = child_val._data if hasattr(child_val, "_data") else child_val
+                child_data = (
+                    child_val._data if hasattr(child_val, "_data") else child_val
+                )
                 if isinstance(child_data, list):
                     for item in child_data:
                         item_span = get_span(item)
@@ -197,23 +201,29 @@ def _collect_all_candidates(raw_data: dict, get_span) -> list[dict]:
                             continue
                         item_data = item._data if hasattr(item, "_data") else item
                         item_id = (
-                            item_data.get("id", "") if isinstance(item_data, dict) else ""
+                            item_data.get("id", "")
+                            if isinstance(item_data, dict)
+                            else ""
                         )
                         label = item_id or "(unnamed)"
-                        results.append({
-                            "label": label,
-                            "container": f"{key}.{child_key}",
-                            "span": item_span,
-                            "use": f'get_structure(file_path, "{label}")',
-                        })
+                        results.append(
+                            {
+                                "label": label,
+                                "container": f"{key}.{child_key}",
+                                "span": item_span,
+                                "use": f'get_structure(file_path, "{label}")',
+                            }
+                        )
             block_id = value_data.get("id", "")
             label = block_id if isinstance(block_id, str) and block_id else key
-            results.append({
-                "label": label,
-                "type": key,
-                "span": top_span,
-                "use": f'get_structure(file_path, "{label}")',
-            })
+            results.append(
+                {
+                    "label": label,
+                    "type": key,
+                    "span": top_span,
+                    "use": f'get_structure(file_path, "{label}")',
+                }
+            )
     return results
 
 
